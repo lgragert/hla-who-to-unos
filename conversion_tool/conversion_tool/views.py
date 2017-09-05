@@ -12,6 +12,9 @@ def home(request):
 def home_1(request):
     return render(request, 'home_1.html')
 
+def license(request):
+    return render(request, 'license.html')    
+
 def allele(request):
     return render(request, 'allele.html')
 
