@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>conversion tool</title>
+     <link rel="stylesheet" href="{% static "css/home.css" %}"/>
+    
+</head>
+<body>
+    <h2> Antigen Mapping </h2>
+    <h3> Allele </h3>
+        {{uinput}}
+        <br />
+        <br />
+
+    <h3> UNOS Antigen </h3>    
+        {{conversion}}
+
+        <br />
+        <br />
+    <h3> Bw4/6 </h3> 
+        {{bw4_6}}
+        <br />
+        <br />
+     <a href="{% url 'home' %}" > Home</a> 
+
+</body>   

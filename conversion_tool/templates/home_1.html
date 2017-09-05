@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>conversion tool</title>
+     <link rel="stylesheet" href="/static/css/home.css"/>
+</head>
+<body>
+    <h2> UNOS antigen mapping for High resolution HLA reference panels</h2>
+     
+    
+    
+    
+
+
+    </form>
+    <h3> Genotype list string/GL string </h3>
+    <form action="{% url 'convert_3' %}" >
+        <textarea name = "userinput1", rows = "2", cols = "80", placeholder="Enter genotype list string here" ></textarea> 
+        <br />
+       
+        <h4> Select Broad/Detailed Race </h4>
+         <label for="AAFA">AAFA </label>
+    
+    <input id="AAFA"type="radio" name="userinput2" value="AAFA">
+    <label for="AFA">AFA </label>
+    <input id="AFA"type="radio" name="userinput2" value="AFA">
+    <label for="CAU">CAU </label>
+    <input id="CAU" type="radio" name="userinput2" value="CAU">
+    <label for="HIS">HIS </label>
+    <input id="HIS" type="radio" name="userinput2" value="HIS">
+    <label for="NAM">NAM </label>
+    <input id="NAM" type="radio" name="userinput2" value="NAM">
+
+      
+      <label for="AAFA">AAFA </label>
+      <input id="AAFA"type="radio" name="userinput2" value="AAFA">
+
+      <label for="AFB">AFB </label>
+      <input id="AFB"type="radio" name="userinput2" value="AFB">
+
+      <label for="AINDI">AINDI </label>
+      <input id="AINDI " type="radio" name="userinput2" value="AINDI ">
+
+      <label for="AISC">AISC </label>
+      <input id="AISC" type="radio" name="userinput2" value="AISC">
+
+      <label for="ALANAM">ALANAM </label>
+      <input id="ALANAM" type="radio" name="userinput2" value="ALANAM">
+
+      <label for="AMIND">AMIND </label>
+      <input id="AMIND"type="radio" name="userinput2" value="AMIND">
+
+      <label for="CARB">CARB </label>
+      <input id="CARB"type="radio" name="userinput2" value="CARB">
+
+      <label for="CARHIS">CARHIS </label>
+      <input id="CARHIS" type="radio" name="userinput2" value="CARHIS">
+
+      <label for="CARIBI"> CARIBI</label>
+      <input id="CARIBI" type="radio" name="userinput2" value="CARIBI">
+
+      <label for="FILII">FILII </label>
+      <input id="FILII" type="radio" name="userinput2" value="FILII">
+
+      <label for="HAWI">HAWI </label>
+      <input id="HAWI"type="radio" name="userinput2" value="HAWI">
+
+      <label for="JAPI">JAPI </label>
+      <input id="JAPI"type="radio" name="userinput2" value="JAPI">
+
+      <label for="KORI">KORI </label>
+      <input id="KORI" type="radio" name="userinput2" value="CAU">
+
+      <label for="MENAFC">MENAFC </label>
+      <input id="MENAFC" type="radio" name="userinput2" value="MENAFC">
+
+      <label for="MSWHIS">MSWHIS </label>
+      <input id="MSWHIS" type="radio" name="userinput2" value="MSWHIS">
+
+      <label for="NAM">NAM </label>
+      <input id="NAM"type="radio" name="userinput2" value="NAM">
+
+      <label for="NCHI">NCHI </label>
+      <input id="NCHI"type="radio" name="userinput2" value="NCHI">
+
+      <label for="MENAFC">MENAFC </label>
+      <input id="MENAFC" type="radio" name="userinput2" value="MENAFC">
+
+      <label for="SCAHIS">SCAHIS </label>
+      <input id="SCAHIS" type="radio" name="userinput2" value="SCAHIS">
+
+      <label for="SCAMB">SCAMB </label>
+      <input id="SCAMB" type="radio" name="userinput2" value="SCAMB">
+
+      <label for="SCSEAI">SCSEAI </label>
+      <input id="SCSEAI"type="radio" name="userinput2" value="SCSEAI">
+
+      <label for="VIET">VIET </label>
+      <input id="VIET"type="radio" name="userinput2" value="VIET">
+
+            <br />
+            <br />
+
+        <input type="submit" value="Convert!"/>
+    </form>
+    <h3> Allele Codes </h3>
+    <form action="{% url 'convert_4' %}" >
+        <textarea name = "userinput1", rows = "2", cols = "80", placeholder="Enter list of allele codes here" ></textarea> 
+        <br />
+       
+        <h4> Select Broad/Detailed Race </h4>
+         <label for="AAFA">AAFA </label>
+    
+    <input id="AAFA"type="radio" name="userinput2" value="AAFA">
+    <label for="AFA">AFA </label>
+    <input id="AFA"type="radio" name="userinput2" value="AFA">
+    <label for="CAU">CAU </label>
+    <input id="CAU" type="radio" name="userinput2" value="CAU">
+    <label for="HIS">HIS </label>
+    <input id="HIS" type="radio" name="userinput2" value="HIS">
+    <label for="NAM">NAM </label>
+    <input id="NAM" type="radio" name="userinput2" value="NAM">
+
+      
+      <label for="AAFA">AAFA </label>
+      <input id="AAFA"type="radio" name="userinput2" value="AAFA">
+
+      <label for="AFB">AFB </label>
+      <input id="AFB"type="radio" name="userinput2" value="AFB">
+
+      <label for="AINDI">AINDI </label>
+      <input id="AINDI " type="radio" name="userinput2" value="AINDI ">
+
+      <label for="AISC">AISC </label>
+      <input id="AISC" type="radio" name="userinput2" value="AISC">
+
+      <label for="ALANAM">ALANAM </label>
+      <input id="ALANAM" type="radio" name="userinput2" value="ALANAM">
+
+      <label for="AMIND">AMIND </label>
+      <input id="AMIND"type="radio" name="userinput2" value="AMIND">
+
+      <label for="CARB">CARB </label>
+      <input id="CARB"type="radio" name="userinput2" value="CARB">
+
+      <label for="CARHIS">CARHIS </label>
+      <input id="CARHIS" type="radio" name="userinput2" value="CARHIS">
+
+      <label for="CARIBI"> CARIBI</label>
+      <input id="CARIBI" type="radio" name="userinput2" value="CARIBI">
+
+      <label for="FILII">FILII </label>
+      <input id="FILII" type="radio" name="userinput2" value="FILII">
+
+      <label for="HAWI">HAWI </label>
+      <input id="HAWI"type="radio" name="userinput2" value="HAWI">
+
+      <label for="JAPI">JAPI </label>
+      <input id="JAPI"type="radio" name="userinput2" value="JAPI">
+
+      <label for="KORI">KORI </label>
+      <input id="KORI" type="radio" name="userinput2" value="CAU">
+
+      <label for="MENAFC">MENAFC </label>
+      <input id="MENAFC" type="radio" name="userinput2" value="MENAFC">
+
+      <label for="MSWHIS">MSWHIS </label>
+      <input id="MSWHIS" type="radio" name="userinput2" value="MSWHIS">
+
+      <label for="NAM">NAM </label>
+      <input id="NAM"type="radio" name="userinput2" value="NAM">
+
+      <label for="NCHI">NCHI </label>
+      <input id="NCHI"type="radio" name="userinput2" value="NCHI">
+
+      <label for="MENAFC">MENAFC </label>
+      <input id="MENAFC" type="radio" name="userinput2" value="MENAFC">
+
+      <label for="SCAHIS">SCAHIS </label>
+      <input id="SCAHIS" type="radio" name="userinput2" value="SCAHIS">
+
+      <label for="SCAMB">SCAMB </label>
+      <input id="SCAMB" type="radio" name="userinput2" value="SCAMB">
+
+      <label for="SCSEAI">SCSEAI </label>
+      <input id="SCSEAI"type="radio" name="userinput2" value="SCSEAI">
+
+      <label for="VIET">VIET </label>
+      <input id="VIET"type="radio" name="userinput2" value="VIET">
+
+            <br />
+            <br />
+
+        <input type="submit" value="Convert!"/>
+    </form>
+</body>   

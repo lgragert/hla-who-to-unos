@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>conversion tool</title>
+    <link rel="stylesheet" href="{% static "css/home.css" %}"/>
+    <h2> Alleles List  </h2>
+    
+<div> </div>
+    <p id="allele_para"> Enter a list of IMGT/HLA allele in the text box and click on "Convert" to map the alleles  to UNOS antigen and designated Bw4 or Bw6 epitopes. Use single space to delimit the enteries. 
+    Allele entered should be either medium resolved to specific HLA protein field or fully resolved. Protein expression specifying characters L, N, S, Q can be used but not the  suffixes for G or P groups</p>
+    <form action="{% url 'convert_2' %}" >
+            {% csrf_token %}
+        <textarea name = "userinput", rows = "5", cols = "50", placeholder="A*02:301N B*42:08 C*03:04:01:08 DQB1*03:241 DRB5*01:07" ></textarea> 
+        <br />
+        <input id="sub" type="submit" value="Convert!"/>
+    </form>
+
+
+
+
+
+ <br />
+    
+    <br />
+
+<a href="{% url 'home' %}" > Home  </a>     

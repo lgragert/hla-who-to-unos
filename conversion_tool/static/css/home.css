@@ -1,0 +1,73 @@
+h2{
+    color: #990000;
+}
+
+#tulane_logo{
+	height: 120px;
+	width: 200px;
+
+}
+
+#nmdp_logo{
+	height: 100px;
+	width: 316px;
+}
+
+#unos_logo{
+	height: 120px;
+	width: 120px;
+}
+
+#blank {
+  border: 4px solid #08acb2
+}
+
+
+body{
+  background-color: #fdf6ee;
+  font-size: 18px;
+  font-family: Times;
+  text-align: center;
+  margin: centre;
+  
+  border-top:  0px;
+  margin: 0px;
+}
+
+
+#sub{
+  background-color: #32CD32;
+  height: 40px;
+  width: 200px;
+  margin: 4px;
+  margin-top: 12px;
+  font-size: 1em;
+  border-radius: 25px;
+}
+
+#overview{
+	 border: 2px solid black;
+
+	 padding: 10px;
+	 margin-right: 300px;
+	 margin-left: 300px;
+}
+
+#convert-button{
+	background-color: #32CD32;
+  	height: 40px;
+  	width: 200px;
+  	margin: 4px;
+  	margin-top: 12px;
+  	font-size: 1em;
+  	border-radius: 25px;
+
+}
+
+#allele_para{
+	display: block;
+	font-size: 20px;
+	margin-left: 100px;
+	margin-right: 100px;
+	border: 2px solid black;
+}
