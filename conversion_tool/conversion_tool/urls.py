@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name="home"),
     url(r'^home_1', views.home_1, name="home_1"),
+    url(r'^license', views.license, name="license"),
     url(r'^allele', views.allele, name="allele"),
     url(r'^lists', views.allele_list, name="lists"),
     url(r'^gl_string', views.gl_string, name="gl_string"),
