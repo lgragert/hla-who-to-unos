@@ -18,7 +18,7 @@
 <body>
     <h2> HAAMU: HLA allele to antigen mapping for UNOS </h2> 
    <!-- <h3> Mapping HLA typing to UNOS antigen nomenclature </h3> -->
-    <h3>Overview</h3>
+    <h3>About</h3>
     <p id="overview" >  HAAMU web tool facilitates the mapping of molecular HLA nomenclature to serological nomenclature required for entering 
         transplant receipients' unacceptable antigens into UNet system. The tool obliges the guidelines laid by Organ procurement and transplant network for antigen mapping. The tool supports antigen mapping for alleles from six loci i.e. 
     A, C, B, DRB1, DQB1, DR345.  </p>
@@ -58,15 +58,19 @@
     <br /> -->
   
     <h3> Important links </h3>
-    <a href="{% static "images/HAAMU_user_guide.pdf" %}" > Download User's guide</a>
+    <a id = "link" href="{% static "images/HAAMU_user_guide.pdf" %}" > Download User's guide</a>
     <br /> 
-    <a href="{% static "images/UNOS_conversion_table.csv" %}" > Download mapping of IMGT/HLA alleles to UNOS antigens</a>
+    <br />
+    <a id = "link" href="{% static "images/UNOS_conversion_table.csv" %}" > Download mapping of IMGT/HLA alleles to UNOS antigens</a>
     <br /> 
-    <a href="http://www.hla.alleles.org">IMGT/HLA alleles </a>  
-    <br />     
-     <a href="https://hml.nmdp.org/MacUI/">NMDP MAC Service </a>
+    <br />
+    <a id = "link" href="http://www.hla.alleles.org">IMGT/HLA alleles </a>  
+    <br /> 
+    <br />    
+     <a id = "link" href="https://hml.nmdp.org/MacUI/">NMDP MAC Service </a>
      <br />
-     <a href="{% url 'license' %}"> License </a>
+     <br />
+     <a id = "link" href="{% url 'license' %}"> License </a>
       
      <br />
      
