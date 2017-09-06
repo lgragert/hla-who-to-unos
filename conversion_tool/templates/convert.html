@@ -10,21 +10,33 @@
     
 </head>
 <body>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     <h2> Antigen Mapping </h2>
-    <h3> Allele </h3>
-        {{uinput}}
-        <br />
-        <br />
+    
+    <table> 
+        <thead>
+            <th> Allele</th>
+            <th> Antigen </th>
+            <th> Bw4/6 </th>
+        </thead>
+        <tr>
+            <td> {{uinput}} </td>
+            <td> {{conversion}} </td>
+            <td> {{bw4_6}} </td>
+    
+    
+    </table>    
 
-    <h3> UNOS Antigen </h3>    
-        {{conversion}}
-
-        <br />
-        <br />
-    <h3> Bw4/6 </h3> 
-        {{bw4_6}}
-        <br />
-        <br />
-     <a href="{% url 'home' %}" > Home</a> 
+    <br />
+    <br />
+    <br />
+    <br />
+     <a id = "home_button" href="{% url 'home' %}" > Home</a> 
 
 </body>   
