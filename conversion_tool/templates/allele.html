@@ -13,7 +13,7 @@
     <p id="allele_para"> Enter IMGT/HLA allele in the text box and click on "Convert" to map the allele to UNOS antigen and designated Bw4 or Bw6 epitopes. Allele entered should be either medium resolved to specific HLA protein field or fully resolved. Protein expression specifying characters L, N, S, Q can be used but not the  suffixes of G or P groups </p>
     <form action="{% url 'convert' %}" >
             {% csrf_token %}
-        <textarea name = "userinput", rows = "5", cols = "30", placeholder="A*01:01:38L or A*01:01L" ></textarea> 
+        <textarea name = "userinput", rows = "5", cols = "30" >A*01:01:38L</textarea> 
         <br />
         <input id="sub" type="submit" value="Convert!"/>
     </form>

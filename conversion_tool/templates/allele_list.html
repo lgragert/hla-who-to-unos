@@ -13,7 +13,7 @@
     Allele entered should be either medium resolved to specific HLA protein field or fully resolved. Protein expression specifying characters L, N, S, Q can be used but not the  suffixes for G or P groups</p>
     <form action="{% url 'convert_2' %}" >
             {% csrf_token %}
-        <textarea name = "userinput", rows = "5", cols = "50", placeholder="A*02:301N B*42:08 C*03:04:01:08 DQB1*03:241 DRB5*01:07" ></textarea> 
+        <textarea name = "userinput", rows = "5", cols = "50" >A*02:301N B*42:08 C*03:04:01:08 DQB1*03:241 DRB5*01:07</textarea> 
         <br />
         <input id="sub" type="submit" value="Convert!"/>
     </form>
