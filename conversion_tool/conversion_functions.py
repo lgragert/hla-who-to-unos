@@ -257,6 +257,9 @@ def gl_string_ags(gl_string, pop):
 	return ag_list
 	
 def genotype_ags(genotype_list, pop):
+	ag_freq_1 = 0.0
+	ag_freq_2 = 0.0
+	
 	geno_antigen_freq = {}
 	for genotype in genotype_list:
 		allele_1 = genotype.split("+")[0]
@@ -291,6 +294,11 @@ def genotype_ags(genotype_list, pop):
 			geno_antigen_freq[geno_antigen] = float(gf)
 
 	TF = sum(geno_antigen_freq.values())
+	if TF == 0.0:
+		TF = 1
+	else:
+		TF = TF	
+
 		
 	for i,j in geno_antigen_freq.items():
 		ag_probs = j/TF
