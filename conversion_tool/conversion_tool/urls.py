@@ -1,6 +1,12 @@
 from django.conf.urls import url
 from django.contrib import admin
 from . import views
+from . import views_a
+from . import views_al
+from . import views_gl
+from . import views_ac
+
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -15,4 +21,8 @@ urlpatterns = [
     url(r'^convert_2/', views.convert_2, name="convert_2"),
     url(r'^convert_3/', views.convert_3, name="convert_3"),
     url(r'^convert_4/', views.convert_4, name="convert_4"),
+    url(r'^single_allele/', views_a.AlleleApiView.as_view()),
+    url(r'^array/', views_al.AlleleListApiView.as_view()),
+    url(r'^gls/', views_gl.GLstringApiView.as_view()),
+    url(r'^macs/', views_ac.AlleleCodesApiView.as_view()),
     ]
