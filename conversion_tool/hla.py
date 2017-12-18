@@ -46,7 +46,7 @@ def locus_string_geno_list(locus_string):
 
 def expand_ac(allele_code):
 	url = "https://mac.b12x.org/api/decode?typing="
-	response = requests.get(url + allele_code)
+	response = requests.get(url + allele_code, verify=False)
 	return(response.text)
 
 
