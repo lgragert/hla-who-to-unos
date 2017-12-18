@@ -2,8 +2,12 @@ from rest_framework import serializers
 
 
 class AlleleSerializer(serializers.Serializer):
-    """Serializes a name field for testing our APIView."""
-    allele = serializers.CharField(max_length=None)
+	
+	"""Create and return a new instance, given the validated data
+	Serializes a name field for testing our APIView."""
+	allele = serializers.CharField(max_length=None)
+	
+
 
 class AlleleListSerializer(serializers.Serializer):
     """Serializes a name field for testing our APIView."""
