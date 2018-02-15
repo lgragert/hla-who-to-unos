@@ -2,25 +2,60 @@
 {% load staticfiles %}
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<head>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    	<title>conversion tool</title>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	</head>
     
-    
-    <title>conversion tool</title>
-    <link rel="stylesheet" href="{% static "css/license.css" %}"/>
-    
+   
+
+    <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #006600;">
+		<div class="container" >
+  			<a class="navbar-brand text-white" > ALLAN  </a>
+  			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+  				<div class="collapse navbar-collapse" id="navbarNav">
+   					 <ul class="nav nav-fill nav-pills">
+      					<li class="nav-item active">
+       						 <a class="nav-link text-white" href="{% url 'home' %}"> Home </a>
+      					</li>
+      					<li class="nav-item active">
+        					<a class="nav-link text-white" href="{% url 'allele' %}"> Alleles</a>
+      					</li>
+      					<li class="nav-item active">
+        					<a class="nav-link text-white" href="{% url 'lists' %}"> Allele List </a>
+      					</li>
+      					<li class="nav-item active">
+        					<a class="nav-link text-white" href="{% url 'gl_string' %}"> Genotype list strings</a>
+      					</li>
+
+      					<li class="nav-item active">
+        					<a class="nav-link text-white" href="{% url 'codes' %}"> Multiple allele codes </a>
+      					</li>
+						<li class="nav-item active">
+        					<a class="nav-link text-white fixed-right" href="https://hla.tulane.edu/"> About us!</a>
+      					</li> 
+    				</ul>
+    			</div>
+  		</div>
+	</nav>
+
+
+
 
    
    <!-- <h3> Mapping HLA typing to UNOS antigen nomenclature </h3> -->
-    <h3> LICENSE </h3>
-    <h4>  GNU GENERAL PUBLIC LICENSE</h4>
+    <h3 class="container mt-5"> ALLAN LICENSE </h3>
+    <h5 class="container alert alert-primary">  GNU GENERAL PUBLIC LICENSE</h4>
    
 
-<h4> TERMS AND CONDITIONS </h4>
+<h6 class="container alert alert-secondary"> TERMS AND CONDITIONS </h4>
 
-<h4> Definitions </h4>
+<h6 class="container alert alert-primary"> Definitions </h4>
 
+<div class="container jumbotron"> 
 <p> "This License" refers to version 3 of the GNU General Public License. </p>
 
 <p> "Copyright" also means copyright-like laws that apply to other kinds of
@@ -569,5 +604,4 @@ copy of the Program in return for a fee.
 </p>
 
     <p> ********End of Terms and Conditions********* </p>
-</body>    
-<a id = "home_button" href="{% url 'home' %}" > Home  </a> 
+</div>

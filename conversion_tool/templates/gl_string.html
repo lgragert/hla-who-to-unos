@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
     <title>conversion tool</title>
-    <link rel="stylesheet" href="{% static "css/home.css" %}"/>
-    <h2> Genotype List String </h2>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+    <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #006600;">
+        <div class="container" >
+            <a class="navbar-brand text-white" > ALLAN  </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="nav nav-fill nav-pills">
+                        <li class="nav-item active">
+                             <a class="nav-link text-white" href="{% url 'home' %}"> Home </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'allele' %}"> Alleles</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'lists' %}"> Allele List </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'gl_string' %}"> Genotype list strings</a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'codes' %}"> Multiple allele codes </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white fixed-right" href="https://hla.tulane.edu/"> About us!</a>
+                        </li> 
+                    </ul>
+                </div>
+        </div>
+</nav>
+
+
+
+
+    <h2 class="container mt-5 mb-5"> Genotype List String </h2>
     
 <div> </div>
-    <p id="allele_para"> Enter 3, 4, 5, 6 loci derived genotype list string in the prescribed format in the text box below, select the population/race and click on "Convert" to map the alleles  to UNOS antigen and designated Bw4 or Bw6 epitopes. Alleles included in the string should be either medium resolved to specific HLA protein field or fully resolved. Protein expression specifying characters L, N, S, Q can be used but not the  suffixes for G or P groups</p>
+    <p class="container jumbotron"> Enter 3, 4, 5, 6 loci derived genotype list string in the prescribed format in the text box below, select the population/race and click on "Convert" to map the alleles  to UNOS antigen and designated Bw4 or Bw6 epitopes. Alleles included in the string should be either medium resolved to specific HLA protein field or fully resolved. Protein expression specifying characters L, N, S, Q can be used but not the  suffixes for G or P groups</p>
     
-    <form action="{% url 'convert_3' %}" method="get">
+    <form class= container action="{% url 'convert_3' %}" method="get">
        <textarea name = "userinput1" rows = "5" cols = "80" >A*02:01g+A*26:01g|A*02:55+A*26:07^C*05:01g+C*01:02g^B*15:01/B*15:02/B*15:03/B*15:04+B*27:05g^DRB1*12:01g+DRB1*01:01^DQB1*03:01g+DQB1*05:01</textarea> 
         <br />
        
@@ -103,12 +140,4 @@
 
 </body>
 
- <br />
-    
-    <br />
-
-<a id = "home_button" href="{% url 'home' %}" > Home  </a>    
-<br />
-    
-    <br />
-<a id = "home_button" href="https://www.ncbi.nlm.nih.gov/pubmed/23849068"> Genotype list string format </a>  
+ 

@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>conversion tool</title>
-     <link rel="stylesheet" href="{% static "css/home.css" %}"/>
-    
-</head>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>conversion tool</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     
+    </head>
+
+
+
+    <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #006600;">
+        <div class="container" >
+            <a class="navbar-brand text-white" > ALLAN  </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="nav nav-fill nav-pills">
+                        <li class="nav-item active">
+                             <a class="nav-link text-white" href="{% url 'home' %}"> Home </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'allele' %}"> Alleles</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'lists' %}"> Allele List </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'gl_string' %}"> Genotype list strings</a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'codes' %}"> Multiple allele codes </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white fixed-right" href="https://hla.tulane.edu/"> About us!</a>
+                        </li> 
+                    </ul>
+                </div>
+        </div>
+    </nav>
+
+
+
 <body>
 
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    <h2> Antigen Mapping </h2>
-    
-    <table> 
-        <thead>
-            <th> Allele</th>
-            <th> Antigen </th>
-            <th> Bw4/6 </th>
-        </thead>
-        <tr>
-            <td> {{uinput}} </td>
-            <td> {{conversion}} </td>
-            <td> {{bw4_6}} </td>
+        
+    <h2 class="container mt-5"> Antigen Mapping for IMGT/HLA Allele</h2>
+    <div class="container"> 
+        <table cellspacing="50"> 
+            <thead>
+                <th> Allele</th>
+                <th> Antigen </th>
+                <th> Bw4/6 </th>
+            </thead>
+            <tr>
+                <td> {{uinput}} </td>
+                <td> {{conversion}} </td>
+                <td> {{bw4_6}} </td>
     
     
-    </table>    
+        </table>    
 
-    <br />
-    <br />
-    <br />
-    <br />
-     <a id = "home_button" href="{% url 'home' %}" > Home</a> 
-
-</body>   
+    </div>  
