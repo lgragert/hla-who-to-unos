@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
 from . import views
 from . import views_a
 from . import views_al
@@ -11,8 +12,8 @@ schema_view = get_swagger_view(title='Mapping of HLA typing data to UNOS antigen
 
 
 urlpatterns = [
-    url(r'^tool-ui', schema_view),
-    url(r'^admin/', admin.site.urls),
+    url(r'^tool_services', schema_view),
+    url(r'^gragertlabpersonel/', admin.site.urls),
     url(r'^$', views.home, name="home"),
     url(r'^home_1', views.home_1, name="home_1"),
     url(r'^license', views.license, name="license"),
