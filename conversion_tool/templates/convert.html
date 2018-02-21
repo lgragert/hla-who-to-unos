@@ -12,9 +12,9 @@
 
 
 
-    <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #006600;">
+    <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #046A38;">
         <div class="container" >
-            <a class="navbar-brand text-white" > ALLAN  </a>
+            <a class="navbar-brand text-white" > TransplantToolbox  </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                      <ul class="nav nav-fill nav-pills">
@@ -22,21 +22,27 @@
                              <a class="nav-link text-white" href="{% url 'home' %}"> Home </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="{% url 'allele' %}"> Alleles</a>
+                            <a class="nav-link text-white" href="{% url 'allele' %}"> Single Allele</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="{% url 'lists' %}"> Allele List </a>
+                            <a class="nav-link text-white" href="{% url 'lists' %}"> Alleles List </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="{% url 'gl_string' %}"> Genotype list strings</a>
+                            <a class="nav-link text-white" href="{% url 'gl_string' %}"> Genotype List Strings</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="{% url 'codes' %}"> Multiple allele codes </a>
+                            <a class="nav-link text-white" href="{% url 'codes' %}"> Multiple Allele Codes </a>
                         </li>
+                            
                         <li class="nav-item active">
-                            <a class="nav-link text-white fixed-right" href="https://hla.tulane.edu/"> About us!</a>
-                        </li> 
+                            <a class="nav-link text-white" href="{% url 'tool_services' %}"> Web Services </a>
+                        </li>
+
+
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'license' %}"> License </a>
+                        </li>
                     </ul>
                 </div>
         </div>
@@ -44,23 +50,29 @@
 
 
 
+
 <body>
 
         
-    <h2 class="container mt-5"> Antigen Mapping for IMGT/HLA Allele</h2>
-    <div class="container"> 
-        <table cellspacing="50"> 
-            <thead>
-                <th> Allele</th>
-                <th> Antigen </th>
-                <th> Bw4/6 </th>
+    <h2 class="container text-danger text-center table-stripped mb-5 mt-5"> Antigen Mapping for IMGT/HLA Allele</h2>
+    <div class="container mt-5"> 
+    
+        <table class=" container table table-bordered table-hover thead-dark text-xl-center"> 
+            <thead class="thead-dark">
+                <tr> 
+                    <th scope="col"> Allele</th>
+                    <th scope="col"> Antigen </th>
+                    <th scope="col"> Bw4/6 </th>
+                </tr>
             </thead>
-            <tr>
+            <tbody>
+            <tr class="bg-light">
                 <td> {{uinput}} </td>
                 <td> {{conversion}} </td>
                 <td> {{bw4_6}} </td>
-    
-    
+            </tr>
+            </tbody>
         </table>    
 
     </div>  
+    

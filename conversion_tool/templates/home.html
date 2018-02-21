@@ -13,9 +13,9 @@
     </head>
 
     
-	<nav class="navbar sticky-top navbar-expand-sm" style="background-color: #006600;">
+	<nav class="navbar sticky-top navbar-expand-sm" style="background-color: #046A38;">
 		<div class="container" >
-  			<a class="navbar-brand text-white" > ALLAN  </a>
+  			<a class="navbar-brand text-white" > TransplantToolbox  </a>
   			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
   				<div class="collapse navbar-collapse" id="navbarNav">
    					 <ul class="nav nav-fill nav-pills">
@@ -23,21 +23,27 @@
        						 <a class="nav-link text-white" href="{% url 'home' %}"> Home </a>
       					</li>
       					<li class="nav-item active">
-        					<a class="nav-link text-white" href="{% url 'allele' %}"> Alleles</a>
+        					<a class="nav-link text-white" href="{% url 'allele' %}"> Single Allele</a>
       					</li>
       					<li class="nav-item active">
-        					<a class="nav-link text-white" href="{% url 'lists' %}"> Allele List </a>
+        					<a class="nav-link text-white" href="{% url 'lists' %}"> Alleles List </a>
       					</li>
       					<li class="nav-item active">
-        					<a class="nav-link text-white" href="{% url 'gl_string' %}"> Genotype list strings</a>
+        					<a class="nav-link text-white" href="{% url 'gl_string' %}"> Genotype List Strings</a>
       					</li>
 
       					<li class="nav-item active">
-        					<a class="nav-link text-white" href="{% url 'codes' %}"> Multiple allele codes </a>
+        					<a class="nav-link text-white" href="{% url 'codes' %}"> Multiple Allele Codes </a>
       					</li>
-						<li class="nav-item active">
-        					<a class="nav-link text-white fixed-right" href="https://hla.tulane.edu/"> About us!</a>
-      					</li> 
+						    
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="{% url 'tool_services' %}"> Web Services </a>
+                </li>
+
+
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="{% url 'license' %}"> License </a>
+                </li>
     				</ul>
     			</div>
   		</div>
@@ -59,45 +65,132 @@
 
 
 <body>
-    <h2 class="container mt-5 mb-5">  ALLAN: IMGT/HLA ALLele to UNOS ANtigen conversion tool </h2> 
-   	<h3 class="container">About</h3>
-    <div class="container jumbotron">
-
-    	<p class="lead" >  This web tool facilitates the mapping of molecular HLA nomenclature to UNOS serological equivalents required for entering 
-        donor's HLA type into UNet system. The tool obliges the guidelines laid by Organ Procurement and Transplant Network for antigen mapping. The tool supports antigen mapping for alleles from seven loci i.e. 
-        (A, B, C, DRB1, DQA1, DQB1, DRB3/4/5) for unambiguous HLA typing (allele, allele list) and six loci (A, B, C, DRB1, DQB1, DRB3/4/5) for ambiguous HLA typing (genotype list strings and multiple allele codes).  </p>
+  <div class="container jumbotron pt-4 pb-4 mt-5">
+    <h2 class="text-success font-weight-bold">  ALLAN: IMGT/HLA ALLele to UNOS ANtigen conversion tool </h2> 
+    
+   	
+        <h4 class="text-dark mt-3"> Automatically convert molecular HLA typing data into UNOS antigen equivalents for entry into UNet</h4>
+        
     </div>
 
-    <h3 class="container"> Mapping HLA typing data</h3>
-    	<div class="container" >
-    		<a  class="btn btn-primary active btn-lg" href="{% url 'allele' %}" role="button" >Allele</a>
+    <div class="container mb-5" style="border:2px solid #255"> 
+      <h3 class="container mt-4 mb-5" > HLA Typing Data Input Formats (choose one): </h3>
+        
+          <div class="container mt-4"> 
+            <div class="row">
+            <div class="col-sm" > <h5> Unambiguous HLA Typing </h5> </div>
+            <div class="col-sm" > <a  class="btn btn-danger active btn-md" href="{% url 'allele' %}" role="button" > Single Allele</a> </div>
+            <div class="col-sm" > <a  class="btn btn-danger active btn-md" href="{% url 'lists' %}" role="button" >Alleles List</a> </div>
+            <div class="col-sm" > <h5> Ambiguous HLA Typing </h5> </div>
+            <div class="col-sm" > <a  class="btn btn-danger active btn-md" href="{% url 'gl_string' %}" role="button" >Genotype List String</a> </div>
+            <div class="col-sm" > <a  class="btn btn-danger active btn-md" href="{% url 'codes' %}" role="button" > NMDP Multiple Allele Codes </a> </div>
+          
+          </div>
+        
+      </div>
+    </div>
+
+
+
+    		<!--  <a  class="btn btn-primary active btn-lg" href="{% url 'allele' %}" role="button" >Allele</a>
       		<a  class="btn btn-primary active btn-lg" href="{% url 'lists' %}" role="button" >Allele List</a>
-           	<a  class="btn btn-primary active btn-lg" href="{% url 'gl_string' %}" role="button" >Genotype list strings</a>
+        <a  class="btn btn-primary active btn-lg" href="{% url 'gl_string' %}" role="button" >Genotype list strings</a>
      		<a  class="btn btn-primary active btn-lg" href="{% url 'codes' %}" role="button" > Multiple Allele Codes</a>
      
-        </div>
-            
-  
-    <h3 class="container mt-5"> Downloads and Links  </h3>
-    	<div class="container" >
-    		<a class="btn btn-dark active btn-md" href="{% static "images/HAAMU_user_guide.pdf" %}" > Download User's guide</a>
-	   		<a class="btn btn-dark active btn-md" href="{% static "images/UNOS_conversion_table.csv" %}" > Download latest version of conversion table</a>
-  			<a class="btn btn-dark active btn-md" href="http://www.hla.alleles.org">IMGT/HLA alleles </a>  
-        	<a class="btn btn-dark active btn-md" href="https://hml.nmdp.org/MacUI/">NMDP MAC Service </a>
-    		<a class="btn btn-dark active btn-md" href="{% url 'license' %}"> License </a>
-      	</div>
-     
-     
-    
-     <h3 class="container mt-5"> Acknowledgements  </h3>
-     <p class="container"> We thank NMDP Bioinformatics @Be the match, IMGT/HLA and UNOS for the resources used in this web tool! </p>
-            
-     
+        </div>-->
+   
+<div class="container bg-light mt-5"> 
+  <div class="row"> 
+    <div class="col-sm"> <h3> External Links </h3> 
+      <ul>
+        <a class="col-sm btn btn-outline-danger  btn-md" href="https://transplanttoolbox.shinyapps.io/cpra-allele/" > TransplantToolbox CPRA calculator with alleles and antigens </a>
+      </ul>
+      
+      <ul>
+        <a class=" col-sm btn btn-outline-primary  btn-md" href="https://optn.transplant.hrsa.gov/resources/guidance/interpretation-of-hla-typing-results-for-entry-into-unet/" > UNOS/OPTN Antigen Conversion Guidelines </a>
+      </ul>
 
-     <h3 class="container" mt-5> Getting Help </h3>
-     <p class="container"> For scientific and technical queries contact help_conversion_tool@tulane.edu </p>
-     <h4 class="container"> Cite Us! </h4>
-     <p class= "container"> Kaur N, Kransdorf EP, Pando MJ, Maiers M, Gragert L. Mapping molecular HLA typing data to UNOS antigen equivalents. XXXX 2018 </p>
+      <ul>
+        <a class="col-sm btn btn-outline-success  btn-md" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3715123/" > Genotype List String format information</a> 
+      </ul>
+
+      <ul>
+        <a class="col-sm btn btn-outline-success  btn-md" href="https://hml.nmdp.org/MacUI/" > NMDP Multiple Allele Code (MAC) Web Service </a> 
+      </ul>
+      
+      <ul>
+        <a class="col-sm btn btn-outline-success  btn-md" href="http://frequency.nmdp.org/" > NMDP High Resolution HLA Frequency Data </a> 
+      </ul>
+
+      <ul>
+        <a class="col-sm btn btn-outline-dark  btn-md" href="https://www.ebi.ac.uk/ipd/imgt/hla/" > IPD-IMGT/HLA Allele Database</a> 
+      </ul>
+
+      <ul>
+        <a class="col-sm btn btn-outline-dark  btn-md" href="http://hla.alleles.org/wmda/" > IMGT/HLA World Marrow Donor Association Files </a> 
+      </ul>
+
+      <ul>
+        <a class="col-sm btn btn-outline-dark  btn-md" href="https://www.ncbi.nlm.nih.gov/pubmed/19140825" > The HLA dictionary 2008 </a>
+      </ul>
+      
+      <ul>
+        <a class="col-sm btn btn-outline-info  btn-md" href="http://hla.tulane.edu" > Gragert Lab at Tulane University School of Medicine </a> 
+      </ul>
+
+      <ul>
+        <a class="col-sm btn btn-outline-info  btn-md" href="https://github.com/lgragert/hla-who-to-unos" > Github Repository for Source Code </a> 
+      </ul>
+    </div>
+  
+  <div class="col-sm" > <h3> Downloads</h3> 
+
+    <ul> 
+      <a class="col-sm btn btn-outline-dark btn-md" href="{% static "images/ALLAN_users_guide.pdf" %}" > User Guide for Web Tool and RESTful Web Services</a> 
+    </ul>
+
+    <ul> 
+      <a class="col-sm btn btn-outline-dark btn-md" href="{% static "images/UNOS_conversion_table.csv" %}" > Complete IMGT/HLA Allele to    UNOS Antigen Equivalency Table </a> 
+    </ul>
+      
+    <ul> 
+      <a class="col-sm btn btn-outline-dark btn-md" href="{% static "images/Antigen_frequencies_26_pops.xlsx" %}" >  NMDP HLA Frequencies at UNOS Antigen Level </a> 
+    </ul>
+
+    </div>
+  </div>
+</div>
+
+   
+<h3 class="container mt-5"> Acknowledgements  </h3>
+  <div class="container"> 
+    <p> We thank NMDP Bioinformatics @Be the match, CIBMTR, UNOS, Bioinformatics group @Anthony Nolan, IMMUCOR, One Lambda for the resources used in this web tool! </p>
+    <a href="https://bethematch.org/"> 
+        <img class="mr-4 mb-3" id="nmdp_logo" src="{% static "images/Be-the-Match-R_CMYK.png" %}", width="400", height="65"> </a>
+    
+    <a href="https://www.cibmtr.org/Pages/index.aspx" > 
+        <img class="mr-4 mb-3" id="cibmtr_logo" src="{% static "images/cibmtr-logo-new.jpg" %}", width="400", height="100"> </a> 
+  
+    <a href="https://unos.org/" > 
+        <img class="mb-3" id="unos_logo" src="{% static "images/unos-logo.png" %}", width="150", height="120"> </a> 
+
+    <a href="https://www.anthonynolan.org/" > 
+        <img class="mr-4" id="unos_logo" src="{% static "images/anthany_nolan_logo.png" %}", width="400", height="100"> </a> 
+
+    <a href="http://www.immucor.com/en-us/Pages/Main-Page.aspx" > 
+        <img class="mr-4" id="unos_logo" src="{% static "images/immucor.png" %}", width="300", height="100"> </a> 
+    
+    <a href="http://www.onelambda.com/en/home.html" > 
+        <img id="unos_logo" src="{% static "images/One_lambda.png" %}", width="300", height="100"> </a> 
+  </div>
+
+
+
+<h3 class="container mt-5" > Contact US </h3>
+    <p class="container"> For scientific and technical queries contact pathologygragertlab@tulane.edu.  </p>
+     
+<h4 class="container"> Cite ALLAN</h4>
+    <p class= "container"> Manuscript in preparation</p>
 
      <!--<div style="margin-left:50px;"></div> -->
      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
