@@ -12,7 +12,7 @@ schema_view = get_swagger_view(title='Mapping of HLA typing data to UNOS antigen
 
 
 urlpatterns = [
-    url(r'^tool_services', schema_view),
+    url(r'^tool_services', schema_view, name="tool_services"),
     url(r'^gragertlabpersonel/', admin.site.urls),
     url(r'^$', views.home, name="home"),
     url(r'^home_1', views.home_1, name="home_1"),
