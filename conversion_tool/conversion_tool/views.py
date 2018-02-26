@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import hla
+import re
 from hla import allele_truncate
 from hla import locus_string_geno_list
 import conversion_functions
@@ -50,6 +51,7 @@ def allele_codes(request):
 
 def convert(request):
     uinput = request.GET['userinput']
+    uinput = uinput.strip() 
     output = convert_allele_to_ag(uinput)
     ag_eq = output[0]
     bw4_6 = output[1]
@@ -58,7 +60,8 @@ def convert(request):
 
 def convert_2(request):
     uinput = request.GET['userinput']
-    allele_list = uinput.split(" ")
+    x = type(uinput)
+    allele_list = re.split(r'[;,\s]\s*' , uinput)
     output = convert_allele_list_to_ags(allele_list)
     ag_list = output[0]
     bw46_list = output[1]
@@ -67,6 +70,7 @@ def convert_2(request):
     
 def convert_3(request):
     uinput_1 = request.GET['userinput1']
+    uinput_1 = uinput_1.strip()
     uinput_2 = request.GET['userinput2']
     output = gl_string_ags(uinput_1, uinput_2)
     ag_list = output[0::3]
@@ -81,7 +85,9 @@ def convert_3(request):
         
 def convert_4(request):
     uinput_1 = request.GET['userinput1']
-    allele_codes_list = uinput_1.split(" ")
+    uinput_1 = uinput_1.strip()
+    allele_codes_list = re.split(r'[;,\s]\s*' , uinput_1)
+    allele_codes_list = sorted(allele_codes_list)
     it = iter(allele_codes_list)
     mac_list = [(x, next(it)) for x in it]
     uinput_2 = request.GET['userinput2']
@@ -90,5 +96,5 @@ def convert_4(request):
     bw46_list = output[1::3]
     probs = output[2::3]
     pop_selected = pop_acro_dict[uinput_2]
-    return render(request, 'convert_4.html', {'pop_entry' : pop_selected , 'al_code_zipped_list': zip(mac_list, ag_list, bw46_list, probs)})
+    return render(request, 'convert_4.html', {'pop_entry' : pop_selected, 'al_code_zipped_list': zip(mac_list, ag_list, bw46_list, probs)})
 
