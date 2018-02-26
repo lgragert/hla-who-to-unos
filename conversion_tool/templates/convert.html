@@ -54,10 +54,10 @@
 <body>
 
         
-    <h2 class="container text-danger text-center table-stripped mb-5 mt-5"> Antigen Mapping for IMGT/HLA Allele</h2>
+    <h2 class="display container text-danger text-center table-stripped mb-5 mt-5"> Antigen Mapping for IMGT/HLA Allele</h2>
     <div class="container mt-5"> 
     
-        <table class=" container table table-bordered table-hover thead-dark text-xl-center"> 
+        <table id="table_single_allele" class="container table table-bordered table-hover thead-dark text-xl-center"> 
             <thead class="thead-dark">
                 <tr> 
                     <th scope="col"> Allele</th>
@@ -76,3 +76,17 @@
 
     </div>  
     
+<script language="javascript" type="text/javascript"> 
+    src="https://code.jquery.com/jquery-1.12.4.js"
+    src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"
+    $(document).ready(function() {
+    $('#table_single_allele').DataTable({
+        "columns": [
+            { "data": "Allele" },
+            { "data": "Antigen" },
+            { "data": "Bw4/6" }
+        ]
+    });
+} );
+
+    </script>

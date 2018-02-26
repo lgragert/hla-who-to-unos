@@ -32,14 +32,14 @@
                             <a class="nav-link text-white" href="{% url 'codes' %}"> Multiple Allele Codes </a>
                         </li>
                             
-                <li class="nav-item active">
-                  <a class="nav-link text-white" href="{% url 'tool_services' %}"> Web Services </a>
-                </li>
+                        <li class="nav-item active">
+                         <a class="nav-link text-white" href="{% url 'tool_services' %}"> Web Services </a>
+                        </li>
 
 
-                <li class="nav-item active">
-                  <a class="nav-link text-white" href="{% url 'license' %}"> License </a>
-                </li>
+                        <li class="nav-item active">
+                        <a class="nav-link text-white" href="{% url 'license' %}"> License </a>
+                        </li>
                     </ul>
                 </div>
         </div>
@@ -47,35 +47,35 @@
 
 
 <body>
-    <h2 class="container mt-5 mb-5"> Antigen Mapping </h2>
-    <div class="container"> 
+    <h2 class="container text-danger text-center  font-weight-bold mt-5 mb-5"> Antigen Mapping for Genotype List Strings </h2>
+    <div class="container mt-5"> 
+        <h3 class="text-secondary active text-center font-weight-bold mt-5 mb-5"> Population Selected: {{pop_entry}}</h3>
+        <table class="container table table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
+            <thead class="thead-dark">
+                <tr> 
+                    <th scope="col"> Locus String </th>
+                    <th scope="col"> Antigens </th>
+                    <th scope="col"> Bw4/6 </th>
+                    <th scope="col"> Antigen Probabilities </th>
 
-    <h3> Genotype list string </h3>
-        {{uinput_1}}
-        <br />
-        <br />
+                </tr>
+            </thead>
+            <tbody>
+            {% for allele, antigen, bw46, agprobs in gl_zipped_list %}
+                <tr class="bg-light">
+                    <td>{{allele}}</td>
+                    <td>{{antigen}}</td>
+                    <td>{{bw46}}</td>
+                    <td>{{agprobs}}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>    
 
-    <h3> Population </h3>
-        {{uinput_2}}
-        <br />
-        <br />
+    </div>  
+    </body>   
+
     
-    
-    
-    <h3> UNOS Antigens List </h3>    
-        {{conversion}}
-
-        <br />
-        <br />
-    <h3> Bw4/6 </h3> 
-        {{bw4_6}}
-        <br />
-        <br />
-
-
-    <h3> Antigen probabilities </h3> 
-        
-        {{ag_probs}}
         
        
 </div>

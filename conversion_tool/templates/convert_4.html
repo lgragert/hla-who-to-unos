@@ -32,14 +32,14 @@
                             <a class="nav-link text-white" href="{% url 'codes' %}"> Multiple Allele Codes </a>
                         </li>
                             
-                <li class="nav-item active">
-                  <a class="nav-link text-white" href="{% url 'tool_services' %}"> Web Services </a>
-                </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'tool_services' %}"> Web Services </a>
+                        </li>
 
 
-                <li class="nav-item active">
-                  <a class="nav-link text-white" href="{% url 'license' %}"> License </a>
-                </li>
+                        <li class="nav-item active">
+                        <a class="nav-link text-white" href="{% url 'license' %}"> License </a>
+                        </li>
                     </ul>
                 </div>
         </div>
@@ -49,35 +49,36 @@
 
 
 <body>
-    <h2 class="container mt-5 mb-5"> Antigen Mapping </h2>
-    <div class="container">
-        <h3> Allele codes </h3>
-            {{uinput_1}}
-            <br />
-            <br />
+    <h2 class="container text-danger text-center  font-weight-bold mt-5 mb-5"> Antigen Mapping for NMDP Multiple Allele Codes</h2>
+    <div class="container mt-5">
+        <h3 class="text-secondary active text-center font-weight-bold mt-5 mb-5"> Population Selected: {{pop_entry}}</h3>
+        <table class="container table table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
+            <thead class="thead-dark">
+                <tr> 
+                    <th scope="col"> Allele Codes </th>
+                    <th scope="col"> Antigens </th>
+                    <th scope="col"> Bw4/6 </th>
+                    <th scope="col"> Antigen Probabilities </th>
 
-        <h3> Population </h3>
-            {{uinput_2}}
-            <br />
-            <br />
-        <h3> UNOS Antigens List </h3>    
-            {{ag_display}}
-            <br />
-            <br />
-        <h3> Bw4/6 </h3> 
-            {{bw4_6}}
-            <br />
-            <br />
-     
-        <h3> Antigen Probabilities </h3> 
-            {{ag_probs}}
-            <br />
-            <br />
+                </tr>
+            </thead>
+           <tbody>
+            {% for allele, antigen, bw46, agprobs in al_code_zipped_list %}
+                <tr class="bg-light">
+                    <td>{{allele}}</td>
+                    <td>{{antigen}}</td>
+                    <td>{{bw46}}</td>
+                    <td>{{agprobs}}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>    
 
-    </div>
+    </div>  
+    </body>   
 
-     
+    
+        
+       
 
-</body>   
-
-
+   

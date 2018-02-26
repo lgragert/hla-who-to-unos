@@ -51,11 +51,11 @@
 
 
 <body>
-    <h2 class="container text-danger text-center table-stripped mt-5 mb-5"> Antigen mapping for list of IMGT/HLA alleles</h2>
+    <h2 class="container text-danger font-weight-bold text-center  mt-5 mb-5"> Antigen mapping for list of IMGT/HLA alleles</h2>
     
     <div class="container mt-5">
         
-    <table class=" container table table-bordered table-hover thead-dark text-xl-center"> 
+    <table class="container table table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
             <thead class="thead-dark">
                 <tr> 
                     <th scope="col"> Allele</th>
@@ -64,17 +64,19 @@
                 </tr>
             </thead>
             <tbody>
-            <tr class="bg-light">
-                <td> {{uinput}} </td>
-                <td> {{conversion}} </td>
-                <td> {{bw4_6}} </td>
-            </tr>
+            {% for allele, antigen, bw46 in zipped_list %}
+				<tr class="bg-light">
+					<td>{{allele}}</td>
+					<td>{{antigen}}</td>
+					<td>{{bw46}}</td>
+				</tr>
+			{% endfor %}
             </tbody>
         </table>    
 
     </div>  
       
-      <script language="javascript" type="text/javascript">
+      <!--<script language="javascript" type="text/javascript">
           var allele_list = ("{{uinput}}");
           var al_list = allele_list.replace(/[&#39;]/g, "");
           var final_al_list = al_list.replace(/[\[\]']+/g,'')
@@ -97,6 +99,6 @@
             for (ag of ag_array){console.log(ag)};
                 for (bwe of bws_array){console.log(bwe)};
 
-      </script>
+      </script> -->
 
 </body>   
