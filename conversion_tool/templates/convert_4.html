@@ -5,13 +5,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>conversion tool</title>
+    <title>TransplantToolbox</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #046A38;">
         <div class="container" >
-            <a class="navbar-brand text-white" > TransplantToolbox  </a>
+            <a class="navbar-brand text-white" href="{% url 'home' %}" > TransplantToolbox  </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                      <ul class="nav nav-fill nav-pills">
@@ -55,6 +55,7 @@
         <table class="container table table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
             <thead class="thead-dark">
                 <tr> 
+                    <th scope="col"> Locus </th>
                     <th scope="col"> Allele Codes </th>
                     <th scope="col"> Antigens </th>
                     <th scope="col"> Bw4/6 </th>
@@ -63,10 +64,11 @@
                 </tr>
             </thead>
            <tbody>
-            {% for allele, antigen, bw46, agprobs in al_code_zipped_list %}
+            {% for loci, allele_codes, antigens, bw46, agprobs in al_code_zipped_list %}
                 <tr class="bg-light">
-                    <td>{{allele}}</td>
-                    <td>{{antigen}}</td>
+                    <td>{{loci}}</td>
+                    <td>{{allele_codes}}</td>
+                    <td>{{antigens}}</td>
                     <td>{{bw46}}</td>
                     <td>{{agprobs}}</td>
                 </tr>
@@ -74,11 +76,49 @@
             </tbody>
         </table>    
 
-    </div>  
-    </body>   
 
+
+   
+
+
+<br>
+<br>  
+
+<div class="container mt-5 text-center text-danger">
+    
+    <!--<div class="container text-center input-group"> -->
+        
+        <div class="text-center input-group"> 
+            <input type="text"  style="width: 400px;" class="form-control" value= "{{ags_returned}}" id="myInput">
+
+            <!-- The button used to copy the text -->
+            <button type="button" class="btn btn-success btn-group-lg active mt-3" onclick="myFunction()">Copy Antigens</button>
+            
+            
+        </div> 
+    </div> 
+</div>   
+
+</body> 
     
         
        
+<script type="text/javascript"> 
+                function myFunction() {
+                /* Get the text field */
+                var copyText = document.getElementById("myInput");
 
+                /* Select the text field */
+                copyText.select();
+
+                /* Copy the text inside the text field */
+                document.execCommand("Copy");
+
+                /* Alert the copied text */
+                alert("Copied the antigens mapped:     " + copyText.value);
+
+
+                }
+
+</script>
    

@@ -6,14 +6,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>conversion tool</title>
+    <title>TransplantToolbox</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 
 <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #046A38;">
         <div class="container" >
-            <a class="navbar-brand text-white" > TransplantToolbox  </a>
+            <a class="navbar-brand text-white" href="{% url 'home' %}"> TransplantToolbox  </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                      <ul class="nav nav-fill nav-pills">
@@ -53,7 +53,7 @@
 <body>
     <h2 class="container text-danger font-weight-bold text-center  mt-5 mb-5"> Antigen mapping for list of IMGT/HLA alleles</h2>
     
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         
     <table class="container table table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
             <thead class="thead-dark">
@@ -76,29 +76,45 @@
 
     </div>  
       
-      <!--<script language="javascript" type="text/javascript">
-          var allele_list = ("{{uinput}}");
-          var al_list = allele_list.replace(/[&#39;]/g, "");
-          var final_al_list = al_list.replace(/[\[\]']+/g,'')
-          var array = final_al_list.split(",")
-           
 
-            var antigen_list = ("{{conversion}}"); 
-            var ag_list = antigen_list.replace(/[&#39;]/g, "");
-            var final_ag_list = ag_list.replace(/[\[\]']+/g,'')
-            var ag_array = final_ag_list.split(",")
+
+<br>
+<br>
+
+
+<div class="container mt-5 text-center text-danger">
+    
+    <!--<div class="container text-center input-group"> -->
+        
+        <div class="text-center input-group"> 
+            <input type="text"  style="width: 400px;" class="form-control" value= "{{ags_returned}}" id="myInput">
+
+            <!-- The button used to copy the text -->
+            <button type="button" class="btn btn-success btn-group-lg active mt-3" onclick="myFunction()">Copy Antigens</button>
             
-
-            var bws_list = ("{{bw4_6}}"); 
-            var bws_list = bws_list.replace(/[&#39;]/g, "");
-            var final_bws_list = bws_list.replace(/[\[\]']+/g,'')
-            var bws_array = final_bws_list.split(",")
             
-
-        for (allele of array){console.log(allele)};
-            for (ag of ag_array){console.log(ag)};
-                for (bwe of bws_array){console.log(bwe)};
-
-      </script> -->
+        </div> 
+    </div> 
+</div>   
 
 </body>   
+
+
+<script type="text/javascript"> 
+                function myFunction() {
+                /* Get the text field */
+                var copyText = document.getElementById("myInput");
+
+                /* Select the text field */
+                copyText.select();
+
+                /* Copy the text inside the text field */
+                document.execCommand("Copy");
+
+                /* Alert the copied text */
+                alert("Copied the antigens mapped:     " + copyText.value);
+
+
+                }
+
+            </script>

@@ -8,7 +8,7 @@ from . import views_gl
 from . import views_ac
 from rest_framework_swagger.views import get_swagger_view
 
-schema_view = get_swagger_view(title='Mapping of HLA typing data to UNOS antigen equivalencies')
+schema_view = get_swagger_view(title='Web services interface information for ALLAN: IMGT/HLA ALLele to UNOS ANtigen conversion tool')
 
 
 urlpatterns = [
