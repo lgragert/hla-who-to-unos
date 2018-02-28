@@ -25,6 +25,8 @@ urlpatterns = [
     url(r'^convert_2/', views.convert_2, name="convert_2"),
     url(r'^convert_3/', views.convert_3, name="convert_3"),
     url(r'^convert_4/', views.convert_4, name="convert_4"),
+    url(r'^reverse/', views.reverse, name="reverse"),
+    url(r'^convert_5/', views.convert_5, name="convert_5"),
     url(r'^single_allele/', views_a.AlleleApiView.as_view()), #schema_view),
     url(r'^array/', views_al.AlleleListApiView.as_view()),
     url(r'^gls/', views_gl.GLstringApiView.as_view()),

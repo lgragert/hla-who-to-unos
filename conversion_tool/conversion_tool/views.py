@@ -6,7 +6,8 @@ from hla import allele_truncate
 from hla import locus_string_geno_list
 import conversion_functions
 from conversion_functions import convert_allele_to_ag, convert_allele_list_to_ags, gl_string_ags, genotype_ags, allele_code_ags
-
+import reverse_conversion
+from reverse_conversion import map_single_ag_to_alleles 
 
 
 pop_acro_dict = {"AFA": "African American", "API": "Asia/Pacific Islander", "CAU": "Caucasian", "HIS": "Hispanic", 
@@ -47,6 +48,9 @@ def gl_string(request):
 
 def allele_codes(request):
     return render(request, 'allele_codes.html')  
+
+def reverse (request):
+    return render(request, 'reverse.html')
 
 
 def convert(request):
@@ -155,3 +159,15 @@ def convert_4(request):
         'al_code_zipped_list': zip(locus_list, mac_list, ag_list, bw46_list, edited_probs),
         'ags_returned': ageps_mapped})
 
+
+
+def convert_5(request):
+    uinput = request.GET['userinput']
+    uinput = uinput.strip() 
+    output = reverse_conversion.map_single_ag_to_alleles(uinput)
+    #ag_list = output.split(",")
+    ag_list = ", ".join(output)
+    #ag_eq = output[0]
+    #bw4_6 = output[1]
+
+    return render(request, 'convert_5.html', {'uinput': uinput, 'conversion': output})      

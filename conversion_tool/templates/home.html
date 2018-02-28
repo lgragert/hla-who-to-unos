@@ -14,13 +14,13 @@
 
     
 	<nav class="navbar sticky-top navbar-expand-sm" style="background-color: #046A38;">
-		<div class="container" >
+		<div class="text-center container" >
   			<a class="navbar-brand text-white" href="{% url 'home' %}"> TransplantToolbox  </a>
   			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
   				<div class="collapse navbar-collapse" id="navbarNav">
    					 <ul class="nav nav-fill nav-pills">
       					<li class="nav-item active">
-       						 <a class="nav-link text-white" href="{% url 'home' %}"> Home </a>
+       						 <a class=" text-center nav-link text-white" href="{% url 'home' %}"> Home </a>
       					</li>
       					<li class="nav-item active">
         					<a class="nav-link text-white" href="{% url 'allele' %}"> Single Allele</a>
@@ -44,6 +44,11 @@
                 <li class="nav-item active">
                   <a class="nav-link text-white" href="{% url 'license' %}"> License </a>
                 </li>
+
+                
+        </div>
+      </li>
+
     				</ul>
     			</div>
   		</div>
@@ -104,6 +109,20 @@
      
         </div>-->
    
+<div class="alert alert-secondary bg-dark pt-1 pb-1 card container" role="alert">
+  <div class="card-body text-center">
+    <a  class="text-light " href="{% url 'reverse' %}"  > <h4>
+      
+     Mapping UNOS Antigens to IMGT/HLA Alleles 
+   </h4> </a> </div>
+  </div>
+</div>
+
+
+
+
+
+
 <div class="container bg-light  mt-5"> 
   
 <div class="col-sm text-center"> <h3> Downloads</h3> 
@@ -116,6 +135,10 @@
       <a class="col-sm btn w-50 btn-outline-dark btn-md font-weight-bold" href="{% static "images/UNOS_conversion_table.csv" %}" > Complete IMGT/HLA Allele to    UNOS Antigen Equivalency Table </a> 
     </ul>
       
+    <ul> 
+      <a class="col-sm btn w-50 btn-outline-dark btn-md font-weight-bold" href="{% static "images/UNOS_antigens_to_alleles.csv" %}" >  UNOS Antigens to IMGT/HLA alleles Equivalency Table </a> 
+    </ul>
+
     <ul> 
       <a class="col-sm btn w-50 btn-outline-dark btn-md font-weight-bold" href="{% static "images/Antigen_frequencies_26_pops.xlsx" %}" >  NMDP HLA Frequencies at UNOS Antigen Level </a> 
     </ul>
@@ -245,9 +268,7 @@
  <br>
 
 <br>
- <br>
-<br>
- <br>
+ 
 
 
 
