@@ -26,3 +26,10 @@ class MACSerializer(serializers.Serializer):
 #class GlstringSerializer(serializers.Serializer):
 	#"""Serilaizes a name field for testing API view."""
 	#gl_string = serializers.CharField(max_length=5000)
+
+class AlleleMappingSerializer(serializers.Serializer):
+	
+	"""Create and return a new instance, given the validated data
+	Serializes a name field for testing our APIView."""
+	antigen = serializers.CharField(max_length=None)
+	

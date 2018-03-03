@@ -167,7 +167,16 @@ def convert_5(request):
     output = reverse_conversion.map_single_ag_to_alleles(uinput)
     #ag_list = output.split(",")
     ag_list = ", ".join(output)
-    #ag_eq = output[0]
-    #bw4_6 = output[1]
+    
+    alleles_mapped = ' '.join(output)
+    alleles_mapped = alleles_mapped.replace(',', ' ')
+    #ageps_mapped = ageps_mapped.replace("NA", "")
+    alleles_mapped = re.sub('\s+', ", ", alleles_mapped)
+    alleles_mapped = alleles_mapped.rstrip(", ")
 
-    return render(request, 'convert_5.html', {'uinput': uinput, 'conversion': output})      
+    return render(request, 'convert_5.html', {'uinput': uinput, 'conversion': output, 'alleles_returned': alleles_mapped}) 
+
+
+
+
+

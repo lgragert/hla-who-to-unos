@@ -51,24 +51,54 @@
 <body>
     
     <div class="container mt-5">
-        
         <h2 class="text-danger text-center font-weight-bold mt-5 mb-5"> IMGT/HLA Alleles Mapped to {{uinput}} UNOS Antigen</h2>
-            
+            <div class="container mt-5 text-center text-danger">
+                <div class="text-center input-group"> 
+                    <input type="text"  style="width: 400px;" class="form-control" value= "{{alleles_returned}}" id="myInput">
+                    <!-- The button used to copy the text -->
+                    <button type="button" class="btn btn-success btn-group-lg active mt-3" onclick="myFunction()">Copy Alleles</button>
+                </div> 
+            </div> 
+        </div>   
 
-            <table class="container table w-50 table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
+</body>   
+
+
+<script type="text/javascript"> 
+                function myFunction() {
+                /* Get the text field */
+                var copyText = document.getElementById("myInput");
+
+                /* Select the text field */
+                copyText.select();
+
+                /* Copy the text inside the text field */
+                document.execCommand("Copy");
+
+                /* Alert the copied text */
+                alert("Copied the antigens mapped: " + copyText.value);
+
+
+                }
+
+            </script>
+
+
+<br>
+<br>
+<br>
+
+
+
+        <table class="container table w-50 table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
             <thead class="thead-dark">
                 <tr> 
                     <th scope="col">  </th>
-                    
-                    
-
                 </tr>
             <tbody>
             {% for locus in conversion %}
                 <tr class="w-50 bg-light">
                     <td>{{locus}}</td>
-
-                    
                 </tr>
             {% endfor %}
             </tbody>
@@ -76,40 +106,5 @@
 
     </div>  
     </body>   
-
-
-</div>
-</body>
-
-
-
-
-        <!--<table class="container table table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
-            <thead class="thead-dark">
-                <tr> 
-                    <th scope="col"> Antigen </th>
-                    <th scope="col"> Alleles mapped </th>
-                    
-
-                </tr>
-            </thead>
-           <tbody>
-            
-                <tr class="bg-light">
-                    <td>{{uinput}}</td>
-                    <td>{{output}}</td>
-                    
-                </tr>
-            
-            </tbody>
-        </table>    
-
-
-
-   
-
-
-<br>
-<br>  
 
 

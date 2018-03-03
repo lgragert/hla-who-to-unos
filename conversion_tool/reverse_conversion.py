@@ -3,10 +3,8 @@
 import os
 import re
 import requests   
-import operator
-import glob
 import hla
-from hla import allele_truncate, locus_string_geno_list, expand_ac, single_locus_allele_codes_genotype
+from hla import allele_truncate
 
 ag_to_allele_dict = {}
 UA_eq_dict = {}
@@ -26,7 +24,7 @@ for row in UNOS_UA_eq_file:
 		ua_ag_eqs = row_split[1:]
 		ua_ag_eqs = list(filter(None, ua_ag_eqs))
 		UA_eq_dict[ua_ag] = ua_ag_eqs
-		
+
 
 UNOS_conversion_table_filename = "conversion_table.csv"
 UNOS_conversion_table_file = open(UNOS_conversion_table_filename, 'r')
@@ -55,17 +53,13 @@ for row in UNOS_conversion_table_file:
 #print(ag_to_allele_dict)
 
 final_dict = {}
-ag_list = []
+#ag_list = []
 
+#for ag in ag_to_allele_dict.keys():
+	#ag_list.append(ag)
 
 
 for ag in ag_to_allele_dict.keys():
-	ag_list.append(ag)
-
-
-
-
-for ag in ag_list:
 	allele_list = []
 	if ag in UA_eq_dict.keys():
 		ag_eqs = UA_eq_dict[ag]
@@ -75,6 +69,8 @@ for ag in ag_list:
 			allele_list.append(alleles)
 		
 		allele_list = [item for sublist in allele_list for item in sublist]
+		#allele_list = allele_list.sort()
+		#print(type(allele_list))
 		final_dict[ag] = allele_list
 
 	else:
@@ -86,8 +82,3 @@ def map_single_ag_to_alleles(antigen):
 		allele_list = final_dict[antigen]
 
 	return allele_list 	
-
-
-
-
-

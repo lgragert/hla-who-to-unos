@@ -55,31 +55,17 @@
 	</nav>
 
 
-
-<!--<div class="Wrapper">
-    <a href="http://medicine.tulane.edu/" >
-    <img id="tulane_logo" src="{% static "images/TulaneMed_Photo.jpg" %}", width="200", height="120" > </a>
-    
-    <a href="https://bethematch.org/"> 
-    <img id="nmdp_logo" src="{% static "images/Be-the-Match-R_CMYK.png" %}", width="400", height="100"> </a>
-    
-    <a href="https://unos.org/" > 
-    <img id="unos_logo" src="{% static "images/unos-logo.png" %}", width="120", height="120"> </a> 
-
-    </div>-->
-
-
 <body>
   <div class="container jumbotron pt-4 pb-4 mt-5">
     <h2 class="text-success font-weight-bold">  ALLAN: IMGT/HLA ALLele to UNOS ANtigen conversion tool </h2> 
     
    	
-        <h4 class="text-dark mt-3"> Automatically convert molecular HLA typing data into UNOS antigen equivalents for entry into UNet</h4>
+        <h4 class="text-dark mt-3"> Automatically convert molecular HLA typing data into UNOS antigen equivalents for entry into UNet </h4>
         
     </div>
   <br>
-    <div class="container pb-4 mb-5" style="border:2px solid #255"> 
-      <h3 class="container mt-4 mb-5" > HLA Typing Data Input Formats (choose one): </h3>
+    <div class="container pb-4 mb-5" style="border:1px solid #255"> 
+      <h3 class="container font-weight-bold mt-4 mb-5" > HLA Typing Data Input Formats (choose one): </h3>
         <div class="container mt-4"> 
             <div class="row">
             <div class="col-sm" > <h4> Unambiguous HLA Typing </h4> </div>
@@ -102,24 +88,14 @@
 
 
 
-    		<!--  <a  class="btn btn-primary active btn-lg" href="{% url 'allele' %}" role="button" >Allele</a>
-      		<a  class="btn btn-primary active btn-lg" href="{% url 'lists' %}" role="button" >Allele List</a>
-        <a  class="btn btn-primary active btn-lg" href="{% url 'gl_string' %}" role="button" >Genotype list strings</a>
-     		<a  class="btn btn-primary active btn-lg" href="{% url 'codes' %}" role="button" > Multiple Allele Codes</a>
-     
-        </div>-->
+
    
-<div class="alert alert-secondary bg-dark pt-1 pb-1 card container" role="alert">
+<div class="container"  style="border:1px solid #255">
   <div class="card-body text-center">
-    <a  class="text-light " href="{% url 'reverse' %}"  > <h4>
-      
-     Mapping UNOS Antigens to IMGT/HLA Alleles 
-   </h4> </a> </div>
+    <h3 class="font-weight-bold text-left mb-3"> Reverse Mapping </h3>
+    <a  class="btn btn-danger  active btn-lg" href="{% url 'reverse' %}"  > Convert a UNOS Antigen to IMGT/HLA Allele List </a> 
+    </div>
   </div>
-</div>
-
-
-
 
 
 
