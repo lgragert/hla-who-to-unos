@@ -93,14 +93,20 @@
         <table class="container table w-50 table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
             <thead class="thead-dark">
                 <tr> 
-                    <th scope="col">  </th>
+                    {% for ag, allele_list  in reverse_zipped %}
+                    <th class="bg-dark text-white" scope="col"> {{ag}} </th>
                 </tr>
+                
             <tbody>
-            {% for locus in conversion %}
+            
                 <tr class="w-50 bg-light">
-                    <td>{{locus}}</td>
+                    {% for allele in allele_list%}
+
+                    <td>{{allele}}</td>
                 </tr>
             {% endfor %}
+            {% endfor %}
+
             </tbody>
         </table>    
 

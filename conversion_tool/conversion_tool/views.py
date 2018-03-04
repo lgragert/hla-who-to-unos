@@ -166,15 +166,36 @@ def convert_5(request):
     uinput = uinput.strip() 
     output = reverse_conversion.map_single_ag_to_alleles(uinput)
     #ag_list = output.split(",")
-    ag_list = ", ".join(output)
-    
-    alleles_mapped = ' '.join(output)
+    ag_list = []
+    for i in output.keys():
+        ag_list.append(i)
+    ags_eq = ag_list
+    print(ags_eq)
+    alleles_ouput = []
+
+    for i in output.values():
+        i = [item for sublist in i for item in sublist]
+        #i = ", ".join(i)
+        alleles_ouput.append(i)
+
+    #print(alleles_ouput)
+
+
+    allele_list = [item for sublist in alleles_ouput for item in sublist]
+    #allele_list = [item for sublist in allele_list for item in sublist]
+    #print(allele_list)
+    alleles_mapped = ' '.join(allele_list)
+    #print(alleles_mapped)
     alleles_mapped = alleles_mapped.replace(',', ' ')
     #ageps_mapped = ageps_mapped.replace("NA", "")
     alleles_mapped = re.sub('\s+', ", ", alleles_mapped)
     alleles_mapped = alleles_mapped.rstrip(", ")
 
-    return render(request, 'convert_5.html', {'uinput': uinput, 'conversion': output, 'alleles_returned': alleles_mapped}) 
+
+    
+
+    return render(request, 'convert_5.html', {'uinput': uinput, 'conversion': alleles_ouput, 'alleles_returned': alleles_mapped, "ags_e": ags_eq, 
+        'reverse_zipped': zip(ags_eq, alleles_ouput)}) 
 
 
 

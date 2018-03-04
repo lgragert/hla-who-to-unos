@@ -57,25 +57,28 @@ final_dict = {}
 
 #for ag in ag_to_allele_dict.keys():
 	#ag_list.append(ag)
-
+d = {}
 
 for ag in ag_to_allele_dict.keys():
 	allele_list = []
+	d = {}
 	if ag in UA_eq_dict.keys():
 		ag_eqs = UA_eq_dict[ag]
 		for ages in ag_eqs:
 			ages = ages.strip()
 			alleles = ag_to_allele_dict[ages]
-			allele_list.append(alleles)
+			d[ages] = [alleles]
+
+			#allele_list.append(alleles)
 		
-		allele_list = [item for sublist in allele_list for item in sublist]
+		#allele_list = [item for sublist in allele_list for item in sublist]
 		#allele_list = allele_list.sort()
 		#print(type(allele_list))
-		final_dict[ag] = allele_list
+		final_dict[ag] = d
 
 	else:
 		final_dict[ag] = ag_to_allele_dict[ag]		
-
+#print(final_dict)
 
 def map_single_ag_to_alleles(antigen):
 	if antigen in final_dict:
