@@ -250,7 +250,7 @@ def gl_string_ags(gl_string, pop):
 		dr345_locus = locus_split[5]
 		dr345_genotype_list = hla.locus_string_geno_list(dr345_locus)
 		dr345_ags = genotype_ags(dr345_genotype_list,pop)
-		ag_list = a_ags + "," + b_ags + "," + c_ags  + "," + dr_ags + "," + dqb_ags + "," + dr345_ags
+		ag_list = a_ags  + b_ags + c_ags  + dr_ags  + dqb_ags  + dr345_ags
 
 
 	
@@ -302,10 +302,11 @@ def genotype_ags(genotype_list, pop):
 		
 	for i,j in geno_antigen_freq.items():
 		ag_probs = j/TF
+		ag_probs = round(ag_probs, 4)
 		geno_antigen_freq[i] = ag_probs
 
 		
-	#print(geno_antigen_freq)		
+	print(geno_antigen_freq)		
 	sorted_gf = sorted(geno_antigen_freq.items(), key = operator.itemgetter(1), reverse = True)
 	#print(sorted_gf)
 	#if len(sorted_gf) == 1:
@@ -321,7 +322,9 @@ def genotype_ags(genotype_list, pop):
 	#print(ag_1)
 	#print(ag_2)
 	ag_list = ag_1 + "," + ag_2
+	#print(ag_list)
 	bw46_list = bw46_1	+ "," + bw46_2
+	#print(bw46_list)
 	return (ag_list, bw46_list, sorted_gf)
 
 
@@ -391,7 +394,7 @@ def allele_code_ags(allele_codes_list, pop):
 		bcodes_genotype = hla.single_locus_allele_codes_genotype(B_codes_pair)
 		b_ags = genotype_ags(bcodes_genotype, pop)
 		
-		ag_list = a_ags  + b_ags  + c_ags
+		ag_list = a_ags  + c_ags + b_ags
 
 	if len(allele_codes_list) == 8:
 		print("Four locus typing")
@@ -408,14 +411,14 @@ def allele_code_ags(allele_codes_list, pop):
 		C_codes_pair = [C_1_code, C_2_code]
 		geno_antigen_freq = {}
 		ccodes_genotype = hla.single_locus_allele_codes_genotype(C_codes_pair)
-		b_ags = genotype_ags(ccodes_genotype, pop)
+		c_ags = genotype_ags(ccodes_genotype, pop)
 
 		B_1_code = allele_codes_list[4]
 		B_2_code = allele_codes_list[5]
 		B_codes_pair = [B_1_code, B_2_code]
 		geno_antigen_freq = {}
 		bcodes_genotype = hla.single_locus_allele_codes_genotype(B_codes_pair)
-		c_ags = genotype_ags(bcodes_genotype, pop)
+		b_ags = genotype_ags(bcodes_genotype, pop)
 			
 		dr_1_code = allele_codes_list[6]
 		dr_2_code = allele_codes_list[7]
@@ -424,7 +427,7 @@ def allele_code_ags(allele_codes_list, pop):
 		drcodes_genotype = hla.single_locus_allele_codes_genotype(dr_codes_pair)
 		dr_ags = genotype_ags(drcodes_genotype, pop)
 
-		ag_list = a_ags  + b_ags + c_ags  + dr_ags
+		ag_list = a_ags  + c_ags + b_ags + dr_ags
 	
 	if len(allele_codes_list) == 10:
 		print("Five locus typing")
@@ -464,7 +467,7 @@ def allele_code_ags(allele_codes_list, pop):
 		dqbcodes_genotype = hla.single_locus_allele_codes_genotype(dqb_codes_pair)
 		dqb_ags = genotype_ags(dqbcodes_genotype, pop)
 
-		ag_list = a_ags  + b_ags  + c_ags + dr_ags  + dqb_ags
+		ag_list = a_ags  + c_ags + b_ags + dr_ags  + dqb_ags
 				
 	if len(allele_codes_list) == 12:
 		print("Six locus typing")
@@ -513,7 +516,7 @@ def allele_code_ags(allele_codes_list, pop):
 		dr345_ags = genotype_ags(dr345codes_genotype, pop)			
 
 
-		ag_list = a_ags  + b_ags  + c_ags  + dr_ags  + dqb_ags  + dr345_ags
+		ag_list = a_ags + c_ags + b_ags + dr_ags  + dqb_ags  + dr345_ags
 
 
 

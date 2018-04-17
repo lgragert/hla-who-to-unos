@@ -22,11 +22,6 @@ pop_acro_dict = {"AFA": "African American", "API": "Asia/Pacific Islander", "CAU
 
 
 
-
-
-
-
-
 def home(request):
     return render(request, 'home.html')
 
@@ -52,7 +47,7 @@ def allele_codes(request):
 def reverse (request):
     return render(request, 'reverse.html')
 
-
+#### SINGLE ALLELE
 def convert(request):
     uinput = request.GET['userinput']
     uinput = uinput.strip() 
@@ -62,6 +57,8 @@ def convert(request):
 
     return render(request, 'convert.html', {'uinput': uinput, 'conversion': ag_eq, 'bw4_6': bw4_6})   
 
+
+### LIST of ALLELES
 def convert_2(request):
     uinput = request.GET['userinput']
     x = type(uinput)
@@ -78,7 +75,7 @@ def convert_2(request):
     
     return render(request, 'convert_2.html', {'zipped_list': zip(allele_list, ag_list, bw46_list), 'ags_returned': ageps_mapped})
     
-    
+#### GENOTYPE LIST STRINGS    
 def convert_3(request):
     uinput_1 = request.GET['userinput1']
     uinput_1 = uinput_1.strip()
@@ -116,7 +113,7 @@ def convert_3(request):
         'ags_returned': ageps_mapped})
         
 
-
+##### NMDP ALLELE CODES
 
 def convert_4(request):
     uinput_1 = request.GET['userinput1']
@@ -125,9 +122,15 @@ def convert_4(request):
     allele_codes_list = sorted(allele_codes_list)
     it = iter(allele_codes_list)
     mac_list = [(x, next(it)) for x in it]
-    print(mac_list)
+    stringy_mac_list = [ "%s %s" % x for x in mac_list ] ### changes list of tuples to list of 
+    comma_stringy_mac_list = [] ### Adds commas to allele code pairs
+    for i in stringy_mac_list:
+        ix = ", ".join(i.split(" "))
+        comma_stringy_mac_list.append(ix)
+
     uinput_2 = request.GET['userinput2']
     output = allele_code_ags(allele_codes_list, uinput_2)
+    #print(output)
     ag_list = output[0::3]
     bw46_list = output[1::3]
     ageps_mapped = ag_list + bw46_list
@@ -147,6 +150,8 @@ def convert_4(request):
         prob2 = re.sub('[(\)''[\]]', '', prob_string)
         edited_probs.append(prob2)
 
+    print(edited_probs)
+    print(type(edited_probs))
     locus_list = []
     
     for i in mac_list:
@@ -156,11 +161,11 @@ def convert_4(request):
         
     pop_selected = pop_acro_dict[uinput_2]
     return render(request, 'convert_4.html', {'pop_entry' : pop_selected, 
-        'al_code_zipped_list': zip(locus_list, mac_list, ag_list, bw46_list, edited_probs),
+        'al_code_zipped_list': zip(locus_list, comma_stringy_mac_list, ag_list, bw46_list, edited_probs),
         'ags_returned': ageps_mapped})
 
 
-
+### REVERSE MAPPING
 def convert_5(request):
     uinput = request.GET['userinput']
     uinput = uinput.strip() 
