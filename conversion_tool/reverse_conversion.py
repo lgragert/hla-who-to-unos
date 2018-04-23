@@ -24,7 +24,7 @@ for row in UNOS_UA_eq_file:
 		ua_ag_eqs = row_split[1:]
 		ua_ag_eqs = list(filter(None, ua_ag_eqs))
 		UA_eq_dict[ua_ag] = ua_ag_eqs
-print(UA_eq_dict)
+#print(UA_eq_dict)
 
 UNOS_conversion_table_filename = "conversion_table.csv"
 UNOS_conversion_table_file = open(UNOS_conversion_table_filename, 'r')

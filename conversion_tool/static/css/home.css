@@ -27,7 +27,7 @@ h3{
 
 
 body{
-  background-color: #fdf6ee;
+  background-color: white;
   font-size: 18px;
   font-family: Times;
   text-align: center;
@@ -80,6 +80,7 @@ table{
   border: solid 2px;
 }
 
+table thead th{ border-bottom: 1px solid #000;}
 
 #link{
   color: darkblue;
@@ -113,3 +114,4 @@ a{
     border-radius: 5px;
     text-decoration: none;
 }
+

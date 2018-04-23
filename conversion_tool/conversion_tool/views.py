@@ -20,8 +20,11 @@ pop_acro_dict = {"AFA": "African American", "API": "Asia/Pacific Islander", "CAU
 "SCSEAI": "South East Asian", "VIET": "Vietnamese"}
 
 
+IMGT_HLA_alleles = []
 
-
+for i in conversion_functions.allele_to_ag_dict.keys():
+    IMGT_HLA_alleles.append(i)
+#print(IMGT_HLA_alleles)
 def home(request):
     return render(request, 'home.html')
 
@@ -51,11 +54,17 @@ def reverse (request):
 def convert(request):
     uinput = request.GET['userinput']
     uinput = uinput.strip() 
-    output = convert_allele_to_ag(uinput)
-    ag_eq = output[0]
-    bw4_6 = output[1]
+    valid_allele_check = IMGT_HLA_alleles
+    
+    if uinput in valid_allele_check:
+        output = convert_allele_to_ag(uinput)
+        ag_eq = output[0]
+        bw4_6 = output[1]
+        
 
-    return render(request, 'convert.html', {'uinput': uinput, 'conversion': ag_eq, 'bw4_6': bw4_6})   
+        return render(request, 'convert.html', {'uinput': uinput, 'conversion': ag_eq, 'bw4_6': bw4_6})   
+    else:   
+        return render(request, 'allele_rejection.html')    
 
 
 ### LIST of ALLELES
@@ -93,23 +102,98 @@ def convert_3(request):
     ageps_mapped = ageps_mapped.rstrip(", ")
     
     probs = output[2::3]
-    edited_probs = []
-    for prob in probs:
-        prob_string = str(prob)
-        x = type(prob_string)
-        prob2 = re.sub('[(\)''[\]]', '', prob_string)
-        edited_probs.append(prob2)
+    #probs = list(probs)
+    #print(probs)
+    #print(type(probs))
+    #edited_probs = []
+    #for prob in probs:
+       # prob_string = str(prob)
+       # x = type(prob_string)
+        #prob2 = re.sub('[(\)''[\]]', '', prob_string)
+        #prob2 = re.sub('[(\)]', '"', prob_string)
+        #prob2 = prob2.replace("'", '')
+        #print(type(prob2))
+        #edited_probs.append(prob2)
+    #print(type(edited_probs))
+    probs_dict = {}
 
+    for i in probs:
+        for subi in i:
+            ags_list = subi[0]
+            pb = subi[1]
+            probs_dict[ags_list] = pb
+
+    #print(probs_dict)        
+
+    aags = []
+    bags = []
+    cags = []
+    drags = []
+    dr345ags = []
+    dqags = []
+
+    for i,j in probs_dict.items():
+        if re.findall("A", i):
+            ji = str(j)
+            fi = i + ": " + ji
+            aags.append(fi)
+
+        if re.findall("B", i):
+            ji = str(j)
+            fi = i + ": " + ji 
+            bags.append(fi)
+
+
+        if re.findall("C", i):
+            ji = str(j)
+            fi = i + ": " + ji 
+            cags.append(fi)
+
+
+        if (re.findall("DR51", i)) or (re.findall("DR52", i)) or (re.findall("DR53", i)):
+            ji = str(j)
+            fi = i + ": " + ji 
+            dr345ags.append(fi)
+            
+
+        if re.findall("DQ", i):
+            ji = str(j)
+            fi = i + ": " + ji 
+            dqags.append(fi)       
+
+        if re.findall("DR", i):
+            ji = str(j)
+            fi = i + ": " + ji 
+            drags.append(fi)
+
+    finalAgs = [aags]  + [cags] + [bags] +  [drags] +  [dr345ags] +  [dqags]
+    
+    finalAglist = [x for x in finalAgs if x != []]
+    #print(finalAglist)
+
+    #for i in finalAgs:
+       # if len(i) == 0:
+           # continue
+        #else:
+            #finalAglist.append([i])
+
+    #print(finalAglist)            
+
+
+
+    #reedited_pros = "\n".join(edited_probs)
+    #print(reedited_pros)
+    
     locus_list = []
     gl_entry = uinput_1.split("^")
     for i in gl_entry:
         locus = i.split("*")[0]
         locus_list.append(locus)
 
-    
+    dummy = [["A", "B"], ["D"],  ["C"], ["A", "D", "C"], ["D"]]
     pop_selected = pop_acro_dict[uinput_2]
     return render(request, 'convert_3.html', {'pop_entry' : pop_selected, 
-        'gl_zipped_list': zip(locus_list, gl_entry, ag_list, bw46_list, edited_probs),
+        'gl_zipped_list': zip(locus_list, gl_entry, ag_list, bw46_list, finalAglist, dummy),
         'ags_returned': ageps_mapped})
         
 
@@ -143,15 +227,74 @@ def convert_4(request):
     ageps_mapped = ageps_mapped.rstrip(", ")
 
     probs = output[2::3]
-    edited_probs = []
-    for prob in probs:
-        prob_string = str(prob)
-        x = type(prob_string)
-        prob2 = re.sub('[(\)''[\]]', '', prob_string)
-        edited_probs.append(prob2)
+    
+    probs_dict = {}
 
-    print(edited_probs)
-    print(type(edited_probs))
+    for i in probs:
+        for subi in i:
+            ags_list = subi[0]
+            pb = subi[1]
+            probs_dict[ags_list] = pb
+
+    #print(probs_dict)        
+
+    aags = []
+    bags = []
+    cags = []
+    drags = []
+    dr345ags = []
+    dqags = []
+
+    for i,j in probs_dict.items():
+        if re.findall("A", i):
+            ji = str(j)
+            fi = i + ": " + ji
+            aags.append(fi)
+
+        if re.findall("B", i):
+            ji = str(j)
+            fi = i + ": " + ji 
+            bags.append(fi)
+
+
+        if re.findall("C", i):
+            ji = str(j)
+            fi = i + ": " + ji 
+            cags.append(fi)
+
+
+        if (re.findall("DR51", i)) or (re.findall("DR52", i)) or (re.findall("DR53", i)):
+            ji = str(j)
+            fi = i + ": " + ji 
+            dr345ags.append(fi)
+            
+
+        if re.findall("DQ", i):
+            ji = str(j)
+            fi = i + ": " + ji 
+            dqags.append(fi)       
+
+        if re.findall("DR", i):
+            ji = str(j)
+            fi = i + ": " + ji 
+            drags.append(fi)
+
+    finalAgs = [aags]  + [cags] + [bags] +  [drags] +  [dr345ags] +  [dqags]
+    
+    finalAglist = [x for x in finalAgs if x != []]
+    #print(finalAglist)
+
+
+
+    #edited_probs = []
+    #for prob in probs:
+        #prob_string = str(prob)
+       # x = type(prob_string)
+        #prob2 = re.sub('[(\)''[\]]', '', prob_string)
+        #edited_probs.append(prob2)
+
+    #print(edited_probs)
+    #print(type(edited_probs))
     locus_list = []
     
     for i in mac_list:
@@ -161,7 +304,7 @@ def convert_4(request):
         
     pop_selected = pop_acro_dict[uinput_2]
     return render(request, 'convert_4.html', {'pop_entry' : pop_selected, 
-        'al_code_zipped_list': zip(locus_list, comma_stringy_mac_list, ag_list, bw46_list, edited_probs),
+        'al_code_zipped_list': zip(locus_list, comma_stringy_mac_list, ag_list, bw46_list, finalAglist),
         'ags_returned': ageps_mapped})
 
 
@@ -175,7 +318,7 @@ def convert_5(request):
     for i in output.keys():
         ag_list.append(i)
     ags_eq = ag_list
-    print(ags_eq)
+    #print(ags_eq)
     alleles_ouput = []
 
     for i in output.values():

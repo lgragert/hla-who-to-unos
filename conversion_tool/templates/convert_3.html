@@ -50,7 +50,7 @@
     <h2 class="container text-danger text-center  font-weight-bold mt-5 mb-5"> Antigen Mapping for Genotype List Strings </h2>
     <div class="container mt-5"> 
         <h3 class="text-secondary active text-center font-weight-bold mt-5 mb-5"> Population Selected: {{pop_entry}}</h3>
-        <table class="container table table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
+        <table class="container table table-responsive-sm table-bordered table-hover table-striped  text-xl-left"> 
             <thead class="thead-dark">
                 <tr> 
                     <th scope="col"> Locus </th>
@@ -58,17 +58,23 @@
                     <th scope="col"> Antigens </th>
                     <th scope="col"> Bw4/6 </th>
                     <th scope="col"> Antigen Probabilities </th>
+                    <!-- <th scope="col"> Dummy </th>-->
 
                 </tr>
             </thead>
             <tbody>
-            {% for locus, gl_string, antigen, bw46, agprobs in gl_zipped_list %}
+            {% for locus, gl_string, antigen, bw46, agprobs, dums in gl_zipped_list %}
                 <tr class="bg-light">
                     <td>{{locus}}</td>
                     <td>{{gl_string}}</td>
                     <td>{{antigen}}</td>
                     <td>{{bw46}}</td>
-                    <td>{{agprobs}}
+                  <!-- <td> {{agprobs }}</td> -->
+                    <td> {% for pps in agprobs%}  <li> {{pps}} {% endfor %}  </li>  </td>
+                   <!-- <td> {% for dd in dums%} 
+
+                         <li> {{dd}} {% endfor %}  </li> </td> -->
+                    
                 </tr>
             {% endfor %}
             </tbody>

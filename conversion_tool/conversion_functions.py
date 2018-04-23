@@ -306,7 +306,7 @@ def genotype_ags(genotype_list, pop):
 		geno_antigen_freq[i] = ag_probs
 
 		
-	print(geno_antigen_freq)		
+	#print(geno_antigen_freq)		
 	sorted_gf = sorted(geno_antigen_freq.items(), key = operator.itemgetter(1), reverse = True)
 	#print(sorted_gf)
 	#if len(sorted_gf) == 1:

@@ -1,0 +1,29 @@
+# Temporary and binary files
+*~
+*.py[cod]
+*.so
+*.cfg
+
+__pycache__/*
+.cache/*
+.*.swp
+*/.ipynb_checkpoints/*
+
+# Project files
+.ropeproject
+.project
+.pydevproject
+.settings
+.idea
+
+# Package files
+*.egg
+*.eggs/
+.installed.cfg
+*.egg-info
+
+/extras
+conversion_tool/UNOS_antigens_to_alleles.xlsx
+conversion_tool/UNOS_conversion_table.csv
+conversion_tool/conversion_tool/line.py
+conversion_tool/conversion_tool/.Rapp.history
