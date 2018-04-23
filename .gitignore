@@ -27,3 +27,5 @@ conversion_tool/UNOS_antigens_to_alleles.xlsx
 conversion_tool/UNOS_conversion_table.csv
 conversion_tool/conversion_tool/line.py
 conversion_tool/conversion_tool/.Rapp.history
+
+conversion_tool/extras/
