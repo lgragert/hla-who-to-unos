@@ -3,6 +3,7 @@
 *.py[cod]
 *.so
 *.cfg
+*$py.class
 
 __pycache__/*
 .cache/*
@@ -30,7 +31,9 @@ conversion_tool/conversion_tool/.Rapp.history
 
 conversion_tool/extras/
 
-venv
+.venv
+venv/
 .DS_Store
-.gitignore
 
+venv.bak/
+README.md
