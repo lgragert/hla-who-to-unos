@@ -193,7 +193,7 @@ def convert_3(request):
     dummy = [["A", "B"], ["D"],  ["C"], ["A", "D", "C"], ["D"]]
     pop_selected = pop_acro_dict[uinput_2]
     return render(request, 'convert_3.html', {'pop_entry' : pop_selected, 
-        'gl_zipped_list': zip(locus_list, gl_entry, ag_list, bw46_list, finalAglist, dummy),
+        'gl_zipped_list': zip(locus_list, gl_entry, ag_list, bw46_list, finalAglist),
         'ags_returned': ageps_mapped})
         
 
@@ -279,10 +279,10 @@ def convert_4(request):
             fi = i + ": " + ji 
             drags.append(fi)
 
-    finalAgs = [aags]  + [cags] + [bags] +  [drags] +  [dr345ags] +  [dqags]
+    finalAgs = [aags] + [bags] + [cags] + [dqags] +[drags] +  [dr345ags] 
     
     finalAglist = [x for x in finalAgs if x != []]
-    #print(finalAglist)
+    print(finalAglist)
 
 
 

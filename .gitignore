@@ -29,3 +29,8 @@ conversion_tool/conversion_tool/line.py
 conversion_tool/conversion_tool/.Rapp.history
 
 conversion_tool/extras/
+
+venv
+.DS_Store
+.gitignore
+
