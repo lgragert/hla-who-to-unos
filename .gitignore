@@ -29,6 +29,7 @@ conversion_tool/UNOS_conversion_table.csv
 conversion_tool/conversion_tool/line.py
 conversion_tool/conversion_tool/.Rapp.history
 
+<<<<<<< HEAD
 conversion_tool/extras/
 
 .venv
@@ -37,3 +38,6 @@ venv/
 
 venv.bak/
 
+=======
+conversion_tool/extras/
+>>>>>>> parent of 2627086... venv removal
