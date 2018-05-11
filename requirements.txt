@@ -1,0 +1,10 @@
+Django==1.11.5
+django-rest-swagger==2.1.2
+djangorestframework==3.7.1
+
+httpie==0.9.9
+idna==2.6
+itypes==1.1.0
+Jinja2==2.10
+
+requests==2.18.4
