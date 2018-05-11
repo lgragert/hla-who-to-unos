@@ -120,7 +120,7 @@ def convert_3(request):
     for i in probs:
         for subi in i:
             ags_list = subi[0]
-            pb = subi[1]
+            pb = round(subi[1], 4)
             probs_dict[ags_list] = pb
 
     #print(probs_dict)        
@@ -233,7 +233,7 @@ def convert_4(request):
     for i in probs:
         for subi in i:
             ags_list = subi[0]
-            pb = subi[1]
+            pb = round(subi[1], 4)
             probs_dict[ags_list] = pb
 
     #print(probs_dict)        

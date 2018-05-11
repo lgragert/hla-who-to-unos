@@ -302,7 +302,7 @@ def genotype_ags(genotype_list, pop):
 		
 	for i,j in geno_antigen_freq.items():
 		ag_probs = j/TF
-		ag_probs = round(ag_probs, 4)
+		#ag_probs = round(ag_probs, 4)
 		geno_antigen_freq[i] = ag_probs
 
 		
