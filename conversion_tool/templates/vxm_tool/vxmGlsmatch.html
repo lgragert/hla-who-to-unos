@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+        <title>TransplantToolbox</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     
+    </head>
+</html>
+<nav class="navbar sticky-top navbar-expand-sm" style="background-color: #336699;">
+    <div class="text-center container" >
+        <a class="navbar-brand text-white" href="{% url 'victor_home' %}"> TransplantToolbox  </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+             <ul class="nav nav-fill nav-pills">
+                <li class="nav-item active">
+                   <a class=" text-center nav-link text-white" href="{% url 'victor_home' %}"> Home </a> 
+                 </li>
+                
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="{% url 'glsvxm' %}"> Genotype List Strings</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="{% url 'macvxm' %}"> Multiple Allele Codes </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="{% url 'victor_license' %}"> License </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="http://www.transplanttoolbox.org/"> ALLAN</a>
+                </li>
+    </ul>
+    </div>
+    </nav>            
+
+    
+
+<body>
+<br>
+<br>
+<br>
+ 
+<div class="container text-center text-dark font-weight-bold mt-5 mb-5">
+    <h2> Virtual Crossmatch results using VICTOR algorithm </h2>
+</div>
+
+<div class="row text-center">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-header text-danger">Donor Parameters</h3>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"> <h4> Donor Race: {{ethinicity}} </h4> </li>
+        <li class="list-group-item"> <h4> Donor HLA Typing</h4> {{output1}} </li>
+        <li class="list-group-item"> <h4>  Donor Antigens: {{donor_ags}} </h4></li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-header text-danger">Recipient's Unacceptable Antigens</h3>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"> <h4> {{recepient_ags}} </h4> </li>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<br>
+<br> 
+<br>
+<br>
+{% if conflicts %}
+ <div class="container text-center"> <h4>  VXM Antigen Probabilities  </h4> 
+<table class="table table-hover table-responsive-sm table-bordered table-hover table-striped  text-xl-center"> 
+            <thead class="thead-dark">
+                <tr> 
+                    <th scope="col"> Antigen</th>
+                    <th scope="col"> Probability </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+            {% for ag, prob in zipped_list %}
+        <tr class="bg-light">
+          <td>{{ag}}</td>
+          <td>{{prob}}</td>
+          
+        </tr>
+      {% endfor %}
+            </tbody>
+        </table>    
+
+</div>
+{% endif %}
+
+        
+<br>
+<br> 
+<br>
+<br>
+   
+ 
+{% if conflicts %}
+  <div class=" container bg-danger text-white font-weight-bold text-center w-50 p-3" role="alert"> 
+    <h2 class="alert-heading mb-0"> {{output3}} {{conflicts}}</h2> 
+  </div>
+ {% else %}
+  <div class="bg-success container text-white font-weight-bold text-center w-50 p-3" role="alert"> 
+    <h2 class="alert-heading mb-0"> {{output3}} {{conflicts}}</h2> 
+  </div>
+  {% endif %}
+
+  <br>
+  <br>
+<div class="jumbotron text-white mt-5 pt-2 pb-2" style="background-color: #336699;"> 
+<h3 class="container text-center font-italic" > Contact Us </h3>
+    <p class="container text-center font-italic"> For scientific and technical queries contact pathologygragertlab@tulane.edu.  </p>
+     <br>
+     <p class="container text-center font-weight-bold"> Prototype Tool for Research Use Only </p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+
+

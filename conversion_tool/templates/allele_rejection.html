@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>TransplantToolbox</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     
+    </head>
+
+
+
+    <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #046A38;">
+        <div class="container" >
+            <a class="navbar-brand text-white" href="{% url 'home' %}"> TransplantToolbox  </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="nav nav-fill nav-pills">
+                        <li class="nav-item active">
+                             <a class="nav-link text-white" href="{% url 'home' %}"> Home </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'allele' %}"> Single Allele</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'lists' %}"> Alleles List </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'gl_string' %}"> Genotype List Strings</a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'codes' %}"> Multiple Allele Codes </a>
+                        </li>
+                            
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'tool_services' %}"> Web Services </a>
+                        </li>
+
+
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'license' %}"> License </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+
+
+
+
+<body>
+
+        <br>
+        <br>
+        <br>
+    
+    <div class="container mt-5"> 
+    
+    
+        <h3 class="container jumbotron font-weight-bold text-center text-danger"> CHECK IF THE ALLELE IS IMGT/HLA ALLELE </h3>   
+    
+        
+    </div>  
+    
+<script language="javascript" type="text/javascript"> 
+    src="https://code.jquery.com/jquery-1.12.4.js"
+    src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"
+    $(document).ready(function() {
+    $('#table_single_allele').DataTable({
+        "columns": [
+            { "data": "Allele" },
+            { "data": "Antigen" },
+            { "data": "Bw4/6" }
+        ]
+    });
+} );
+
+    </script>
