@@ -7,7 +7,7 @@ from . import views_al
 from . import views_gl
 from . import views_ac
 from . import views_reverse
-from vxm_tool import views_vxm
+
 from rest_framework_swagger.views import get_swagger_view
 
 schema_view = get_swagger_view(title='Web services interface information for ALLAN: IMGT/HLA ALLele to UNOS ANtigen conversion tool')
@@ -34,10 +34,5 @@ urlpatterns = [
     url(r'^gls/', views_gl.GLstringApiView.as_view()),
     url(r'^macs/', views_ac.AlleleCodesApiView.as_view()),
     url(r'^reverse_mapping/', views_reverse.AlleleMappingApiView.as_view()),
-    url(r'^victor', views_vxm.vxm_home, name="victor_home"),
-    url(r'^glsvxm/', views_vxm.gl_string, name="glsvxm"),
-    url(r'^matchgls/', views_vxm.match_gl, name="matchgls"),
-    url(r'^macvxm/', views_vxm.multiple_allele_codes, name="macvxm"),
-    url(r'^matchmac/', views_vxm.match_ac, name="matchmac"),
-    url(r'^VICTORLICENSE/', views_vxm.victor_license, name="victor_license"),
+    
 ]
