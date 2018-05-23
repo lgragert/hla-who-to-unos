@@ -1,10 +1,10 @@
 # hla-who-to-unos
 
-[ALLAN: IMGT/HLA ALLele to UNOS ANtigen conversion tool](https://transplanttoolbox.org)
+[ALLAN: IMGT/HLA ALLele to UNOS ANtigen conversion tool](http://www.transplanttoolbox.org/)
 
 It's a conversion Tool between WHO HLA Allele Sequences and UNOS Antigen Nomenclature for entry of HLA typing into UNOS UNet system. 
 
-To use the user interface of the tool visit https://transplanttoolbox.org
+To use the user interface of the tool visit http://www.transplanttoolbox.org/
 
 ```
 Steps to installing web app locally:
