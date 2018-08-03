@@ -59,7 +59,7 @@
     <h2 class="container text-danger text-center font-weight-bold mt-5 mb-5" > High Resolution Alleles List  </h2>
     
 <div class="container"> 
-    <p class="container jumbotron pt-4 pb-4 lead"> Enter a list of IMGT/HLA alleles in the text box and click on "Convert" to map the alleles to UNOS antigens and their Bw4 or Bw6 epitopes. Alleles entered should be resolved to specific HLA protein field (2nd field) or fully resolved (full IMGT/HLA allele name). Protein expression specifying characters ("L", "N", "S", "Q") can be used. Characters that specify antigen recognition domain equivalents (“G”, “P”, “g") can also be used. The list can be delimited by spaces, tabs, or commas. HLA loci supported are A, B, C, DRB1, DQA1, DQB1, DRB3/4/5.</p>
+    <p class="container jumbotron pt-4 pb-4 lead"> Enter a list of IPD-IMGT/HLA alleles in the text box and click on "Convert" to map the alleles to UNOS antigens and their Bw4 or Bw6 epitopes. Alleles entered should be resolved to specific HLA protein field (Two-field) or fully resolved (full IPD-IMGT/HLA allele name). Protein expression specifying characters ("L", "N", "S", "Q") can be used. Characters that specify antigen recognition domain equivalents (“G”, “P”, “g") can also be used. The list can be delimited by spaces, tabs, or commas. HLA loci supported are A, B, C, DRB1, DQA1, DQB1, DRB3/4/5.</p>
     <form class="mt-5 text-center" action="{% url 'convert_2' %}" >
             
         <textarea name = "userinput", rows = "5", cols = "50" >A*02:301N B*42:08 C*03:04:01:08 DQB1*03:241 DRB5*01:07</textarea> 
