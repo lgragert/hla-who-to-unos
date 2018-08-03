@@ -34,20 +34,20 @@ for row in UNOS_conversion_table_file:
 		continue 
 	else:
 		allele = row.split(',')[0]
-		allele_4d = hla.allele_truncate(allele)
+		#allele_4d = hla.allele_truncate(allele)
 		antigen = row.split(',')[1]
 		rule = row.split(',') [2]
 		bw4_6 = row.split(',')[3]
 		
 		if antigen in ag_to_allele_dict.keys():
-			if allele_4d in ag_to_allele_dict[antigen]:
-				continue
-			else:	
+			#if allele_4d in ag_to_allele_dict[antigen]:
+				#continue
+			#else:	
 
-				ag_to_allele_dict[antigen].append(allele_4d)
+			ag_to_allele_dict[antigen].append(allele)
 
 		else:
-			ag_to_allele_dict[antigen] = [allele_4d]	 
+			ag_to_allele_dict[antigen] = [allele]	 
 
 
 #print(ag_to_allele_dict)
