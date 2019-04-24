@@ -5,8 +5,13 @@ import re
 import requests   
 import operator
 import glob
-import hla
+import hla     ### This module has certain functions needed to modify user input HLA data
 from hla import allele_truncate, locus_string_geno_list, expand_ac, single_locus_allele_codes_genotype
+
+## allele_truncate: Truncates four-field allele nomenclature to two-field
+#locus_string_geno_list: converts a GL string from one locus to a list of possible genotypes
+#expand_ac: Expands a allele code to string of alleles after calling the NMDP MAC service
+#single_locus_allele_codes_genotype: Converts a list of allele codes from a locus to list of genotypes
 
 allele_to_ag_dict = {}
 population_allele_frequencies = {}
@@ -29,6 +34,9 @@ for row in UNOS_conversion_table_file:
 		
 	allele_to_ag_dict[allele] = antigen, rule, bw4_6 
 	allele_to_ag_dict[allele_4d] = antigen, rule, bw4_6
+
+
+### Dictionary with allele frequencies
 
 for file in glob.glob('*.freqs'):
 	#print(file)
@@ -80,7 +88,7 @@ def convert_allele_to_ag(allele):
 def convert_allele_list_to_ags(hla_allele_list):
 	
 	"""This function can be called if a list of alleles has to be converted to antigens. Input format is a list and 
-	the corresponding antigens and rules will be printed out"""
+	the corresponding antigens will be printed out"""
 	ag_list = []
 	bw4_6_list = []
 	for allele in hla_allele_list:
@@ -110,7 +118,7 @@ def convert_allele_list_to_ags(hla_allele_list):
 
 
 def gl_string_ags(gl_string, pop):
-
+	""" This function maps GL string to the most probable antigen as per allele frequencies of the ethnicity provided"""
 	gl_string = gl_string.replace("HLA-", "")
 	locus_split = gl_string.split("^")
 
@@ -134,8 +142,8 @@ def gl_string_ags(gl_string, pop):
 		print("One locus typing")
 		geno_antigen_freq = {}
 		a_locus = locus_split[0]
-		a_genotype_list = hla.locus_string_geno_list(a_locus)
-		a_ags = genotype_ags(a_genotype_list,pop)
+		a_genotype_list = hla.locus_string_geno_list(a_locus)  ### converts a locus string into the possible genotypes
+		a_ags = genotype_ags(a_genotype_list,pop)              ### maps antigens to the genotypes 
 		ag_list = a_ags  
 
 
@@ -257,6 +265,7 @@ def gl_string_ags(gl_string, pop):
 	return ag_list
 	
 def genotype_ags(genotype_list, pop):
+	""" This functions assigns the most common antigens to a genotype list from locus"""
 	ag_freq_1 = 0.0
 	ag_freq_2 = 0.0
 	
@@ -329,6 +338,7 @@ def genotype_ags(genotype_list, pop):
 
 
 def allele_code_ags(allele_codes_list, pop):
+	"""This function assigns most probable antigens to multiple allele codes"""
 
 	ag_freq_1 = 0.0
 	ag_freq_2 = 0.0

@@ -1,5 +1,8 @@
 #! usr/bin/python 
 
+
+############################################################### This script maps antigens to alleles ########################################################
+
 import os
 import re
 import requests   
@@ -10,6 +13,7 @@ ag_to_allele_dict = {}
 UA_eq_dict = {}
 
 
+## Dictionary that maps an unacceptable antigen to its equivalent ####
 
 UNOS_UA_eq_filename = "UNOS_4-10_ag_equivalencies.csv"
 UNOS_UA_eq_file = open(UNOS_UA_eq_filename, 'r')
@@ -26,6 +30,8 @@ for row in UNOS_UA_eq_file:
 		UA_eq_dict[ua_ag] = ua_ag_eqs
 #print(UA_eq_dict)
 
+
+### Dictionary that maps each antigen to list of corresponding alleles
 UNOS_conversion_table_filename = "conversion_table.csv"
 UNOS_conversion_table_file = open(UNOS_conversion_table_filename, 'r')
 for row in UNOS_conversion_table_file:
@@ -59,6 +65,7 @@ final_dict = {}
 	#ag_list.append(ag)
 d = {}
 
+## dictionary that maps an antigen to the corresponding alleles and antigen equivalents and their corresponding alleles
 for ag in ag_to_allele_dict.keys():
 	allele_list = []
 	d = {}
@@ -81,6 +88,7 @@ for ag in ag_to_allele_dict.keys():
 #print(final_dict)
 
 def map_single_ag_to_alleles(antigen):
+	""" Maps antigen to the corresponding antigen equivalents and alleles"""
 	if antigen in final_dict:
 		allele_list = final_dict[antigen]
 
