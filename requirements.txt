@@ -1,10 +1,10 @@
-Django==1.11.21
+Django==1.11.22
 django-rest-swagger==2.1.2
 djangorestframework==3.9.1
 
 httpie==0.9.9
 idna==2.6
 itypes==1.1.0
-Jinja2==2.10
+Jinja2==2.10.1
 
 requests==2.20.0
