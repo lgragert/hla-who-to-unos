@@ -204,13 +204,18 @@ def convert_4(request):
     uinput_1 = uinput_1.strip()
     allele_codes_list = re.split(r'[;,\s]\s*' , uinput_1)
     allele_codes_list = sorted(allele_codes_list)
-    it = iter(allele_codes_list)
-    mac_list = [(x, next(it)) for x in it]
-    stringy_mac_list = [ "%s %s" % x for x in mac_list ] ### changes list of tuples to list of 
-    comma_stringy_mac_list = [] ### Adds commas to allele code pairs
-    for i in stringy_mac_list:
-        ix = ", ".join(i.split(" "))
-        comma_stringy_mac_list.append(ix)
+    if (len(allele_codes_list) > 1):
+
+        it = iter(allele_codes_list)
+        mac_list = [(x, next(it)) for x in it]
+        stringy_mac_list = [ "%s %s" % x for x in mac_list ] ### changes list of tuples to list of 
+        comma_stringy_mac_list = [] ### Adds commas to allele code pairs
+        for i in stringy_mac_list:
+            ix = ", ".join(i.split(" "))
+            comma_stringy_mac_list.append(ix)
+    else:
+        comma_stringy_mac_list = allele_codes_list
+        mac_list = allele_codes_list
 
     uinput_2 = request.GET['userinput2']
     output = allele_code_ags(allele_codes_list, uinput_2)
