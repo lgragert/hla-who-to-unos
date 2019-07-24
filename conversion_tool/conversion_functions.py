@@ -341,6 +341,53 @@ def genotype_ags(genotype_list, pop):
 	#print(bw46_list)
 	return (ag_list, bw46_list, sorted_gf)
 
+# when a single MAC is provided
+def allele_list_ags(allele_list, pop):
+
+	ag_freq = 0.0
+	allele_antigen_freq = {}
+
+	for allele in allele_list:
+
+		allele = allele.split("+")[0]
+		allele = allele.rstrip("g p P G")
+		allele = hla.allele_truncate(allele)
+
+		if allele in population_allele_frequencies[pop]:
+			ag_freq = population_allele_frequencies[pop][allele]
+		else:
+			ag_freq = 0.0
+
+		ag = allele_to_ag_dict[allele][0]
+		bw46 = allele_to_ag_dict[allele][2]
+
+		allele_antigen = ag
+		if allele_antigen in allele_antigen_freq.keys():
+			allele_antigen_freq[allele_antigen] += float(ag_freq)
+		else:
+			allele_antigen_freq[allele_antigen] = float(ag_freq)
+
+		print (allele + " " + ag + " " + str(ag_freq))
+
+
+	TF = sum(allele_antigen_freq.values())
+	if TF == 0.0:
+		TF = 1
+	else:
+		TF = TF	
+
+	for i,j in allele_antigen_freq.items():
+		ag_probs = j/TF
+		#ag_probs = round(ag_probs, 4)
+		allele_antigen_freq[i] = ag_probs
+
+	sorted_af = sorted(allele_antigen_freq.items(), key = operator.itemgetter(1), reverse = True)
+
+	top_ag = sorted_af[0][0]
+	top_af = sorted_af[0][1]
+
+	return (top_ag, bw46, sorted_af)
+
 
 def allele_code_ags(allele_codes_list, pop):
 	"""This function assigns most probable antigens to multiple allele codes"""
@@ -350,6 +397,14 @@ def allele_code_ags(allele_codes_list, pop):
 	geno_antigen_freq = {}
 	ag_list = ""
 
+	if len(allele_codes_list) == 1:
+		print("Single multiple allele code")
+		One_locus_typing = 1
+		A_code = allele_codes_list[0]
+		allele_list = hla.expand_ac(A_code)
+		MAC_expanded_split = allele_list.split("/")
+		a_ags = allele_list_ags(MAC_expanded_split, pop)
+		ag_list = a_ags
 	
 	if len(allele_codes_list) == 2:
 		print("One locus typing")
