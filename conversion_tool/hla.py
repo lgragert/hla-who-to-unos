@@ -45,7 +45,7 @@ def locus_string_geno_list(locus_string):
 
 
 def expand_ac(allele_code):
-	url = "https://hml.nmdp.org/mac/api/decode?typing="
+	url = "https://hml.nmdp.org/mac/api/decode?imgtHlaRelease=3.37.0&typing="
 	response = requests.get(url + allele_code)
 	return(response.text)
 
