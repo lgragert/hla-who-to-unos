@@ -7,4 +7,4 @@ idna==2.6
 itypes==1.1.0
 Jinja2==2.11.3
 
-requests==2.20.0
+requests==2.31.0
