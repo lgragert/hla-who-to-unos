@@ -1,4 +1,4 @@
-Django==5.2.16
+Django==5.2.17
 django-rest-swagger==2.1.2
 djangorestframework==3.17.2
 
